@@ -82,9 +82,9 @@ export const CardType1: React.FC<CardType1Props> = ({
       <div className="pt-4">
         <h3 className="text-xl font-semibold">{title}</h3>
         <p className="mt-2 text-gray-500 dark:text-gray-400">{subtitle}</p>
-        <div className="mt-4 flex items-center gap-2">
+        <div className="mt-4 flex flex-wrap items-center gap-2">
           {badgeNames.map((badgeName, index) => (
-            <Badge key={`badge_${index}`} variant="outline">
+            <Badge key={`badge_${index}`} variant="filled" color="cyan">
               {badgeName}
             </Badge>
           ))}

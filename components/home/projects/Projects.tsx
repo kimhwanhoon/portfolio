@@ -16,7 +16,7 @@ const cardType1Contents: CardType1Props[] = [
     title: "My Dictionary",
     subtitle:
       "This web app serves as our repository for storing vocabularies, idioms, and sentences that we aim to memorize.",
-    badgeNames: ["Next 14", "TypeScript", "Mantine"],
+    badgeNames: ["Next 14", "TypeScript", "Postgresql"],
   },
   {
     image: {
@@ -49,6 +49,28 @@ const cardType1Contents: CardType1Props[] = [
     subtitle:
       '"100 Things to Do Before You Turn into a Zombie" suggests stepping out of the busy everyday life of modern people and proposing special adventures',
     badgeNames: ["React 18", "TypeScript", "Redux", "React Query"],
+  },
+  {
+    image: {
+      originalImage: {
+        alt: "GongGong Play",
+        src: "https://i.ibb.co/vQqrKDM/255395315-7241e40f-147e-4690-a595-4281c9adae2a-Medium.jpg",
+      },
+      playback: {
+        alt: "GongGong Play",
+        src: "https://i.ibb.co/QvVcL29/Screen-Recording-2024-05-30-at-16-24-25.gif",
+      },
+    },
+    title: "GongGong Play",
+    subtitle:
+      "This website provides information and reservation services for public sports facilities in Seoul.",
+    badgeNames: [
+      "React 18",
+      "Express",
+      "Styled Component",
+      "Redux",
+      "React Query",
+    ],
   },
 ];
 
