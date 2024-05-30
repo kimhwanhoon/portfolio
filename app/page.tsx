@@ -1,8 +1,5 @@
-import { Card } from "@/components/cards/Card";
 import { Hero } from "@/components/heroes/Hero";
-import { Projects } from "@/components/projects/Projects";
-import { Badge } from "@mantine/core";
-import Link from "next/link";
+import { Projects } from "@/components/home/projects/Projects";
 
 import React from "react";
 
@@ -19,15 +16,7 @@ const HomePage = () => {
         firstButton={{ title: "View Portfolio", href: "/#projects" }}
         secondButton={{ title: "Contact Me", href: "/#contact" }}
       />
-      <Projects>
-        {
-          <>
-            <Card />
-            <Card />
-            <Card />
-          </>
-        }
-      </Projects>
+      <Projects />
     </main>
   );
 };
