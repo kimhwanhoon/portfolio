@@ -17,6 +17,7 @@ const arimo = Arimo({
   variable: "--font-arimo",
 });
 import { ThemeProvider } from "@/theme/ThemeProvider";
+import { Header } from "@/components/header/Header";
 
 export const metadata: Metadata = {
   title: "kimhwanhoon - portfolio website",
@@ -37,6 +38,7 @@ export default function RootLayout({
       <body className={arimo.className}>
         <ThemeProvider>
           <Notifications />
+          <Header />
           {children}
         </ThemeProvider>
       </body>
