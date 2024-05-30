@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { ColorSchemeScript, MantineProvider } from "@mantine/core";
+import { Arimo } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const arimo = Arimo({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-arimo",
+});
+import "@mantine/core/styles.css";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +22,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <head>
+        <ColorSchemeScript />
+      </head>
+      <body className={arimo.className}>
+        <MantineProvider>{children}</MantineProvider>
+      </body>
     </html>
   );
 }
