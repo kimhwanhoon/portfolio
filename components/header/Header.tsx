@@ -4,7 +4,10 @@ import Link from "next/link";
 
 export const Header = () => {
   return (
-    <header className="h-[60px] bg-transparent shadow-lg shadow-gray-200">
+    <header
+      id="header"
+      className="h-[60px] bg-transparent shadow-lg shadow-gray-200"
+    >
       <div className="flex items-center justify-between p-4">
         <Link
           className="hover-effect-mild text-xl font-bold uppercase"

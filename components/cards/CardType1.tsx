@@ -63,6 +63,7 @@ export const CardType1: React.FC<CardType1Props> = ({
   return (
     <Card
       onMouseEnter={handleMouseEnter}
+      onTouchStart={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       className="group cursor-pointer overflow-hidden rounded-xl shadow-lg transition-all hover:shadow-xl"
       component={Link}
