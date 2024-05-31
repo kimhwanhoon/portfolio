@@ -2,6 +2,7 @@
 
 import { SectionType1 } from "@/components/sections/SectionType1";
 import { Button, Divider, TextInput, Textarea } from "@mantine/core";
+import { notifications } from "@mantine/notifications";
 import Link from "next/link";
 import React, { useState } from "react";
 
@@ -9,24 +10,50 @@ export const Contact = () => {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const sendMail = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsLoading(true);
     const formData = new FormData();
     formData.append("name", name);
     formData.append("email", email);
     formData.append("message", message);
 
-    const { error } = await fetch("/contact/send-mail", {
-      method: "post",
-      body: formData,
-    }).then((r) => r.json());
+    try {
+      const { error } = await fetch("/contact/send-mail", {
+        method: "post",
+        body: formData,
+      }).then((r) => r.json());
 
-    if (error) {
-      alert("error");
-      console.log(error);
-    } else {
-      alert("success");
+      if (error) {
+        notifications.show({
+          title: "Error occurred",
+          message:
+            "Something went wrong! 🤥 Please try again or contact me directly at contact@hwanhoon.kim",
+          color: "red",
+          autoClose: 5000,
+        });
+      } else {
+        notifications.show({
+          title: "Your mail is on the way",
+          message: "Your mail has been successfully sent to Hwanhoon Kim.",
+          autoClose: 3000,
+        });
+        setEmail("");
+        setName("");
+        setMessage("");
+      }
+    } catch (error) {
+      notifications.show({
+        title: "Error occurred",
+        message:
+          "Something went wrong! 🤥 Please try again or contact me directly at contact@hwanhoon.kim",
+        color: "red",
+        autoClose: 5000,
+      });
+    } finally {
+      setIsLoading(false);
     }
   };
   return (
@@ -72,8 +99,13 @@ export const Contact = () => {
             onChange={(e) => setMessage(e.target.value)}
           />
         </div>
-        <Button className="w-full" type="submit" style={{ width: "100%" }}>
-          Send Message
+        <Button
+          loading={isLoading}
+          className="w-full"
+          type="submit"
+          style={{ width: "100%" }}
+        >
+          {isLoading ? "Sending..." : "Send Message"}
         </Button>
       </form>
       <Divider className="my-4" />
