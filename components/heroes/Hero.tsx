@@ -28,10 +28,10 @@ export const Hero = ({
         <h1 className="text-shadow-outline text-4xl font-bold tracking-tight text-white decoration-wavy md:text-6xl ">
           {title}
         </h1>
-        <p className="text-shadow-outline text-xl font-semibold text-gray-200 md:text-2xl ">
+        <p className="text-shadow-outline text-xl font-semibold text-white md:text-2xl ">
           {subtitle}
         </p>
-        <p className="text-shadow-outline mx-auto max-w-[600px] font-medium text-gray-200">
+        <p className="text-shadow-outline mx-auto max-w-[600px] font-medium text-white">
           {content}
         </p>
         <div className="flex justify-center gap-4">

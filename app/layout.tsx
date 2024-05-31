@@ -11,6 +11,9 @@ import "@mantine/nprogress/styles.css";
 import "@mantine/tiptap/styles.css";
 import "@mantine/charts/styles.css";
 
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
 const arimo = Arimo({
   subsets: ["latin"],
   display: "swap",
@@ -41,6 +44,8 @@ export default function RootLayout({
           <Header />
           {children}
         </ThemeProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
