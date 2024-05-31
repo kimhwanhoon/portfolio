@@ -28,9 +28,7 @@ export const SectionType1: React.FC<SectionType1Props> = ({
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
             {title}
           </h2>
-          <p className="mx-auto max-w-[600px] text-gray-500 dark:text-gray-400">
-            {subtitle}
-          </p>
+          <p className="mx-auto max-w-[600px] text-gray-700">{subtitle}</p>
         </div>
         <div className={twClassNameForSecondDiv}>{children}</div>
       </div>
