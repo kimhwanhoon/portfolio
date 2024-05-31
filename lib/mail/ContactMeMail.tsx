@@ -10,10 +10,8 @@ interface ContactMeMailProps {
 export function ContactMeMail({ email, name, message }: ContactMeMailProps) {
   return (
     <Html lang="en">
-      <Heading as="h1">Mail received from your portfolio!</Heading>
-      <Heading as="h2">
-        From: {name} &quot;{email}&quot;
-      </Heading>
+      <Heading as="h1">{"You've got a message from your portfolio."}</Heading>
+      <Heading as="h2">{`From: ${name} | ${email}`}</Heading>
       <Text>{message}</Text>
     </Html>
   );
