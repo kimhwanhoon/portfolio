@@ -1,3 +1,4 @@
+import { ScrollToTopButton } from "@/components/affix/ScrollToTopButton";
 import { Hero } from "@/components/heroes/Hero";
 import { Contact } from "@/components/home/contact/Contact";
 import { Projects } from "@/components/home/projects/Projects";
@@ -22,6 +23,7 @@ const HomePage = () => {
       <Projects />
       <Skills />
       <Contact />
+      <ScrollToTopButton />
     </main>
   );
 };
