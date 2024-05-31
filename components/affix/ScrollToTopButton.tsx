@@ -19,6 +19,7 @@ export const ScrollToTopButton = () => {
               }
               style={transitionStyles}
               onClick={() => scrollTo({ y: 0 })}
+              className="text-xs md:text-sm"
             >
               Scroll to top
             </Button>

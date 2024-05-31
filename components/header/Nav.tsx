@@ -6,7 +6,7 @@ type Menu = {
   href: string;
 };
 
-const menu: Menu[] = [
+export const menu: Menu[] = [
   { name: "Home", href: "/" },
   { name: "Projects", href: "/#projects" },
   { name: "Skills", href: "/#skills" },
@@ -26,5 +26,5 @@ export const Nav = () => {
       {name}
     </Button>
   ));
-  return <nav className="flex items-center gap-4">{menuContent}</nav>;
+  return <nav className="hidden items-center gap-4 md:flex">{menuContent}</nav>;
 };
