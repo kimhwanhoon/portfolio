@@ -7,14 +7,32 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    screens: {
+      xs: "400px",
+      sm: "640px",
+      md: "768px",
+      lg: "1280px",
+      xl: "1536px",
+      "2xl": "1980px",
+    },
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      textShadow: {
+        outline:
+          "0.5px 0.5px 0px #555555, -0.5px -0.5px 0px #555555, 0.5px -0.5px 0px #555555, -0.5px 0.5px 0px #555555",
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }: any) {
+      const newUtilities = {
+        ".text-shadow-outline": {
+          textShadow:
+            "0.5px 0.5px 0px #555555, -0.5px -0.5px 0px #555555, 0.5px -0.5px 0px #555555, -0.5px 0.5px 0px #555555",
+        },
+      };
+
+      addUtilities(newUtilities, ["responsive", "hover"]);
+    },
+  ],
 };
 export default config;
