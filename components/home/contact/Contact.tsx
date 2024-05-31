@@ -1,5 +1,5 @@
 import { SectionType1 } from "@/components/sections/SectionType1";
-import { Button, TextInput, Textarea } from "@mantine/core";
+import { Button, Divider, TextInput, Textarea } from "@mantine/core";
 import Link from "next/link";
 import React from "react";
 
@@ -30,19 +30,21 @@ export const Contact = () => {
         <div className="space-y-2">
           <Textarea label="message" placeholder="Content" required />
         </div>
-        <Button className="w-full" type="submit">
+        <Button className="w-full" type="submit" style={{ width: "100%" }}>
           Send Message
         </Button>
       </form>
-      <section className="mx-auto flex max-w-md flex-col items-center gap-2 py-4">
-        <h3 className="text-2xl font-semibold">For hire?</h3>
-        <p className="">Download my CV now</p>
+      <Divider className="my-4" />
+      <section className="mx-auto flex max-w-md items-center justify-center gap-8 py-4">
+        <div>
+          <h3 className="text-2xl font-semibold">For hire?</h3>
+          <p className="">Download my CV now</p>
+        </div>
+
         <Button
-          className="w-full"
           variant="outline"
           component={Link}
           href="/cv/Hwanhoon_Kim_CV_FR_COURT.pdf"
-          rel="noopener noreferrer"
         >
           Download Now
         </Button>
