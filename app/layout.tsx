@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { ColorSchemeScript } from "@mantine/core";
 import { Notifications } from "@mantine/notifications";
 
@@ -24,8 +24,32 @@ import { Header } from "@/components/header/Header";
 
 export const metadata: Metadata = {
   title: "kimhwanhoon - portfolio website",
+  applicationName: "KIMHWANHOON",
   description:
     "Welcome to portfolio website of me, Hwanhoon Kim. I'm a frontend developer who mainly uses next.js with typescript, tailwindcss, supabase etc. I use Mantine and Ant design UI libraries. This website is made of Mantine.",
+  appleWebApp: {
+    capable: true,
+    title: "kimhwanhoon - portfolio website",
+    statusBarStyle: "black-translucent",
+    startupImage: ["./apple-icon.png"],
+  },
+  authors: {
+    name: "Hwanhoon Kim",
+    url: "https://github.com/kimhwanhoon/portfolio",
+  },
+  creator: "Hwanhoon Kim",
+  publisher: "Hwanhoon Kim, Deployed by Vercel",
+  keywords: ["portfolio", "kimhwanhoon"],
+  category: "portfolio",
+  icons: "./apple-icon.png",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  interactiveWidget: "resizes-content",
+  userScalable: false,
 };
 
 export default function RootLayout({
