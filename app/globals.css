@@ -20,9 +20,5 @@
 
 .hero.bg {
   background: rgb(252, 252, 252);
-  background: radial-gradient(
-    circle,
-    rgba(252, 252, 252, 1) 0%,
-    rgba(219, 232, 236, 1) 100%
-  );
+  background: radial-gradient(circle, rgba(252, 252, 252, 1) 0%, #d0d9f8 100%);
 }

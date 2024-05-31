@@ -16,7 +16,8 @@ const cardType1Contents: CardType1Props[] = [
     title: "My Dictionary",
     subtitle:
       "This web app serves as our repository for storing vocabularies, idioms, and sentences that we aim to memorize.",
-    badgeNames: ["Next 14", "TypeScript", "Postgresql"],
+    badgeNames: ["Next 14", "React 18", "TypeScript", "Postgresql"],
+    url: "https://github.com/kimhwanhoon/my-dictionary",
   },
   {
     image: {
@@ -32,7 +33,8 @@ const cardType1Contents: CardType1Props[] = [
     title: "Movie Baba",
     subtitle:
       "MovieBaba is a film review community where you can record the movies you've watched and discuss them.",
-    badgeNames: ["Next 13", "TypeScript", "supabase", "TMDB"],
+    badgeNames: ["Next 13", "React 18", "TypeScript", "supabase", "TMDB"],
+    url: "https://github.com/kimhwanhoon/Bootcamp-final-project",
   },
   {
     image: {
@@ -45,10 +47,11 @@ const cardType1Contents: CardType1Props[] = [
         src: "https://i.ibb.co/ScJrNyK/260345404-e792b83b-e9df-4d77-b138-777c39cbb024.gif",
       },
     },
-    title: "Zombie Bucket List",
+    title: "100 Things to Do Before You Turn into a Zombie",
     subtitle:
-      '"100 Things to Do Before You Turn into a Zombie" suggests stepping out of the busy everyday life of modern people and proposing special adventures',
+      "This website suggests stepping out of the busy everyday life of modern people and proposing special adventures",
     badgeNames: ["React 18", "TypeScript", "Redux", "React Query"],
+    url: "https://github.com/kimhwanhoon/zombie-bucket-list",
   },
   {
     image: {
@@ -71,12 +74,14 @@ const cardType1Contents: CardType1Props[] = [
       "Redux",
       "React Query",
     ],
+    url: "https://github.com/kimhwanhoon/20230724_team_project",
   },
 ];
 
 export const Projects = () => {
   return (
     <SectionType1
+      id="projects"
       title="Featured Projects"
       subtitle="Check out some of my latest and greatest web development projects."
     >
@@ -96,6 +101,7 @@ export const Projects = () => {
           title={content.title}
           subtitle={content.subtitle}
           badgeNames={content.badgeNames}
+          url={content.url}
         />
       ))}
     </SectionType1>

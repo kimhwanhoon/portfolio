@@ -28,7 +28,6 @@ export const Hero = ({
         <div className="flex justify-center gap-4">
           <Button
             className="hover-effect-mild"
-            color="cyan"
             component={Link}
             href={firstButton?.href ?? "#"}
           >
@@ -36,7 +35,6 @@ export const Hero = ({
           </Button>
           <Button
             className="hover-effect-mild"
-            color="cyan"
             variant="white"
             component={Link}
             href={secondButton.href ?? "#"}

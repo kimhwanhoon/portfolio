@@ -4,6 +4,7 @@
 // bottom => badges (tags)
 /* eslint-disable @next/next/no-img-element */
 import { Badge, Card, CardSection } from "@mantine/core";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 
 export interface CardType1Props {
@@ -14,6 +15,7 @@ export interface CardType1Props {
   title: string;
   subtitle: string;
   badgeNames?: string[];
+  url: string;
 }
 
 export const CardType1: React.FC<CardType1Props> = ({
@@ -21,6 +23,7 @@ export const CardType1: React.FC<CardType1Props> = ({
   title = "This is title.",
   subtitle = "This is subtitle.",
   badgeNames = ["first", "second"],
+  url = "#",
 }) => {
   const [isHovering, setIsHovering] = useState<boolean>(false);
   const [isPlaybackPlaying, setIsPlaybackPlaying] = useState<boolean>(false);
@@ -62,6 +65,10 @@ export const CardType1: React.FC<CardType1Props> = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       className="group cursor-pointer overflow-hidden rounded-xl shadow-lg transition-all hover:shadow-xl"
+      component={Link}
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
     >
       <CardSection>
         {!isPlaybackPlaying ? (
@@ -86,7 +93,7 @@ export const CardType1: React.FC<CardType1Props> = ({
         </p>
         <div className="mt-4 flex flex-wrap items-center gap-2 ">
           {badgeNames.map((badgeName, index) => (
-            <Badge key={`badge_${index}`} variant="filled" color="cyan">
+            <Badge key={`badge_${index}`} variant="filled" color="indigo">
               {badgeName}
             </Badge>
           ))}
