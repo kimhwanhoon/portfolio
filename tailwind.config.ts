@@ -15,8 +15,24 @@ const config: Config = {
       xl: "1536px",
       "2xl": "1980px",
     },
-    extend: {},
+    extend: {
+      textShadow: {
+        outline:
+          "0.5px 0.5px 0px #555555, -0.5px -0.5px 0px #555555, 0.5px -0.5px 0px #555555, -0.5px 0.5px 0px #555555",
+      },
+    },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }: any) {
+      const newUtilities = {
+        ".text-shadow-outline": {
+          textShadow:
+            "0.5px 0.5px 0px #555555, -0.5px -0.5px 0px #555555, 0.5px -0.5px 0px #555555, -0.5px 0.5px 0px #555555",
+        },
+      };
+
+      addUtilities(newUtilities, ["responsive", "hover"]);
+    },
+  ],
 };
 export default config;

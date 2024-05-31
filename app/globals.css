@@ -58,8 +58,8 @@
 .hero-bg {
   --s: 25vmin;
   --p: calc(var(--s) / 2);
-  --c1: rgb(252, 135, 154);
-  --c2: dodgerblue;
+  --c1: rgb(245, 74, 103);
+  --c2: rgb(12, 124, 235);
   --c3: white;
   --bg: var(--c3);
   --d: 10000ms;
