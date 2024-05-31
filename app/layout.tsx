@@ -37,7 +37,7 @@ export default function RootLayout({
       </head>
       <body className={arimo.className}>
         <ThemeProvider>
-          <Notifications />
+          <Notifications position="top-center" />
           <Header />
           {children}
         </ThemeProvider>
