@@ -4,7 +4,7 @@ import { createTheme, MantineProvider } from "@mantine/core";
 import { ReactNode } from "react";
 
 const theme = createTheme({
-  primaryColor: "indigo",
+  // primaryColor: "#1E90FF",
 });
 
 interface ThemeProviderProps {

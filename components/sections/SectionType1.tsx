@@ -6,6 +6,8 @@ interface SectionType1Props {
   subtitle: string;
   children: ReactNode;
   id?: string;
+  twClassNameForSecondDiv?: string;
+  twClassNameForSectionBackGround?: string;
 }
 
 export const SectionType1: React.FC<SectionType1Props> = ({
@@ -13,9 +15,14 @@ export const SectionType1: React.FC<SectionType1Props> = ({
   subtitle,
   children,
   id = "",
+  twClassNameForSecondDiv = "",
+  twClassNameForSectionBackGround = "",
 }) => {
   return (
-    <section id={id} className="flex justify-center py-8 md:py-16">
+    <section
+      id={id}
+      className={`flex justify-center py-8 md:py-16 ${twClassNameForSectionBackGround}`}
+    >
       <div className="container space-y-10 px-4 md:px-6">
         <div className="space-y-4 text-center">
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
@@ -25,9 +32,7 @@ export const SectionType1: React.FC<SectionType1Props> = ({
             {subtitle}
           </p>
         </div>
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {children}
-        </div>
+        <div className={twClassNameForSecondDiv}>{children}</div>
       </div>
     </section>
   );

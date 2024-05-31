@@ -1,5 +1,6 @@
 import { Hero } from "@/components/heroes/Hero";
 import { Projects } from "@/components/home/projects/Projects";
+import { Skills } from "@/components/home/skills/Skills";
 
 import React from "react";
 
@@ -15,8 +16,10 @@ const HomePage = () => {
         ideas to life!"
         firstButton={{ title: "View Portfolio", href: "/#projects" }}
         secondButton={{ title: "Contact Me", href: "/#contact" }}
+        twClassNameForBackground="hero-bg"
       />
       <Projects />
+      <Skills />
     </main>
   );
 };

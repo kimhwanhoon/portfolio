@@ -93,7 +93,7 @@ export const CardType1: React.FC<CardType1Props> = ({
         </p>
         <div className="mt-4 flex flex-wrap items-center gap-2 ">
           {badgeNames.map((badgeName, index) => (
-            <Badge key={`badge_${index}`} variant="filled" color="indigo">
+            <Badge key={`badge_${index}`} variant="filled">
               {badgeName}
             </Badge>
           ))}
