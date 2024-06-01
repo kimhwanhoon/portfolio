@@ -10,8 +10,8 @@ const nodeMailerApi = nodemailer.createTransport({
     user: process.env.MAIL_ADDRESS as string,
     pass: process.env.MAIL_PASSWORD as string,
   },
-  logger: true,
-  debug: true,
+  // logger: true,
+  // debug: true,
 });
 
 export default nodeMailerApi;
