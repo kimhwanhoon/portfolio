@@ -11,8 +11,12 @@ export const POST = async (req: NextRequest) => {
   const form = { email, name, message };
 
   try {
-    await sendMail(form);
-    return NextResponse.json({ error: null });
+    const { error, data } = await sendMail(form);
+    if (error) {
+      return NextResponse.json({ error, data });
+    } else {
+      return NextResponse.json({ error: null, data });
+    }
   } catch (error) {
     return NextResponse.json({ error: error });
   }
