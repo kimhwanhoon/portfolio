@@ -7,8 +7,8 @@ const nodeMailerApi = nodemailer.createTransport({
   port: 465,
   secure: true,
   auth: {
-    user: process.env.MAIL_ADDRESS as string,
-    pass: process.env.MAIL_PASSWORD as string,
+    user: process.env.MAIL_ADDRESS ?? "contact@hwanhoon.kim",
+    pass: process.env.MAIL_PASSWORD ?? "David-Spacemail1!",
   },
   logger: true,
   debug: true,
