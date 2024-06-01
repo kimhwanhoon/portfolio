@@ -3,6 +3,7 @@ import "server-only";
 import nodeMailerApi from "./nodeMailerApi";
 import { render } from "@react-email/render";
 import { ContactMeMail } from "./ContactMeMail";
+import { SuccessNoticeMail } from "./SuccessNoticeMail";
 
 interface MailType {
   email: string;
@@ -15,23 +16,36 @@ const sendMail = async ({ email, name, message }: MailType) => {
   const recipient = process.env.MAIL_ADDRESS as string;
   const title = "New Message - hwanhoon.kim";
 
-  const emailHtml = render(ContactMeMail({ email, name, message }));
+  const renderedContactMail = render(ContactMeMail({ email, name, message }));
+  const renderedSuccessNoticeMail = render(
+    SuccessNoticeMail({ email, name, message }),
+  );
 
-  const mailOption = {
-    from: `'김환훈⭐️' <${sender}>`,
+  const mailOption_to_hwanhoonKim = {
+    from: `'hwanhoon.kim' <${sender}>`,
     to: recipient,
     subject: title,
-    html: emailHtml,
+    html: renderedContactMail,
   };
 
-  const info = await nodeMailerApi.sendMail(mailOption);
+  const mailOption_to_Writer = {
+    from: `'Hwanhoon Kim' <${sender}>`,
+    to: email,
+    subject: title,
+    html: renderedSuccessNoticeMail,
+  };
 
-  return { data: { info, sender, processEnv: process.env.MAIL_ADDRESS } };
+  try {
+    const info = await nodeMailerApi.sendMail(mailOption_to_hwanhoonKim);
 
-  if (info.accepted.length > 0) {
-    return { error: null, data: info };
-  } else {
-    return { error: true, data: info };
+    if (info.accepted.length > 0) {
+      const info = await nodeMailerApi.sendMail(mailOption_to_Writer);
+      return { error: null, data: info };
+    } else {
+      return { error: true, data: info };
+    }
+  } catch (error) {
+    return { error };
   }
 };
 
