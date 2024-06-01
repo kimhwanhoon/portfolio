@@ -33,7 +33,7 @@ const sendMail = async ({ email, name, message }: MailType) => {
       return { error: true, data: info };
     }
   } catch (error) {
-    return { error: error, data: { sender } };
+    return { error: error, data: { sender, test: 1 } };
   }
 };
 
