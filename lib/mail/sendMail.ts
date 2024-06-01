@@ -27,12 +27,12 @@ const sendMail = async ({ email, name, message }: MailType) => {
     const info = await nodeMailerApi.sendMail(mailOption);
 
     if (info.accepted.length > 0) {
-      return true;
+      return { error: null, data: info };
     } else {
-      return false;
+      return { error: true, data: info };
     }
   } catch (error) {
-    return false;
+    return { error: error };
   }
 };
 
