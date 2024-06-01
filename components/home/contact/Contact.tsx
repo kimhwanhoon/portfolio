@@ -21,11 +21,14 @@ export const Contact = () => {
     formData.append("message", message);
 
     try {
-      const { error } = await fetch("/contact/send-mail", {
+      const { error, data } = await fetch("/contact/send-mail", {
         method: "post",
         body: formData,
       }).then((r) => r.json());
-
+      // to be deleted
+      console.log("error", error);
+      console.log("data", data);
+      // to be deleted
       if (error) {
         notifications.show({
           title: "Error occurred",
