@@ -38,8 +38,11 @@ const sendMail = async ({ email, name, message }: MailType) => {
   try {
     const info = await nodeMailerApi.sendMail(mailOption_to_hwanhoonKim);
 
+    // After sending it info's type is like this
+    // info: {accepted: ["mail address"], ehlo, envelope, ...}
+    // which means if it is accepted, it is a success.
     if (info.accepted.length > 0) {
-      const info = await nodeMailerApi.sendMail(mailOption_to_Writer);
+      await nodeMailerApi.sendMail(mailOption_to_Writer);
       return { error: null, data: info };
     } else {
       return { error: true, data: info };
