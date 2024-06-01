@@ -11,6 +11,7 @@ interface MailType {
 }
 
 const sendMail = async ({ email, name, message }: MailType) => {
+  const sender = process.env.MAIL_ADDRESS as string;
   const recipient = process.env.MAIL_ADDRESS as string;
   const title = "New Message - hwanhoon.kim";
 
@@ -18,7 +19,7 @@ const sendMail = async ({ email, name, message }: MailType) => {
 
   try {
     const mailOption = {
-      from: `'김환훈⭐️' <${process.env.MAIL_ADDRESS}>`,
+      from: `'김환훈⭐️' <${sender}>`,
       to: recipient,
       subject: title,
       html: emailHtml,
@@ -32,7 +33,7 @@ const sendMail = async ({ email, name, message }: MailType) => {
       return { error: true, data: info };
     }
   } catch (error) {
-    return { error: error };
+    return { error: error, data: { sender } };
   }
 };
 
