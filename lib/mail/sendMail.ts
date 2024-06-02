@@ -14,7 +14,7 @@ interface MailType {
 const sendMail = async ({ email, name, message }: MailType) => {
   const sender = process.env.MAIL_ADDRESS as string;
   const recipient = process.env.MAIL_ADDRESS as string;
-  const title = "New Message - hwanhoon.kim";
+  const title = "Message delivered - hwanhoon.kim";
 
   const renderedContactMail = render(ContactMeMail({ email, name, message }));
   const renderedSuccessNoticeMail = render(

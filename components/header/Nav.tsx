@@ -1,27 +1,29 @@
+"use client";
 import { Button } from "@mantine/core";
-import Link from "next/link";
+import { Link } from "react-scroll";
 
 type Menu = {
   name: string;
-  href: string;
+  to: string;
 };
 
 export const menu: Menu[] = [
-  { name: "Home", href: "/" },
-  { name: "Projects", href: "/#projects" },
-  { name: "Skills", href: "/#skills" },
-  { name: "Contact", href: "/#contact" },
+  { name: "Home", to: "home" },
+  { name: "Projects", to: "projects" },
+  { name: "Skills", to: "skills" },
+  { name: "Contact", to: "contact" },
 ];
 
 export const Nav = () => {
-  const menuContent = menu.map(({ name, href }) => (
+  const menuContent = menu.map(({ name, to }) => (
     <Button
       className="hover-effect"
       color="gray"
       component={Link}
+      to={to}
+      smooth
       variant="subtle"
       key={name}
-      href={href}
     >
       {name}
     </Button>

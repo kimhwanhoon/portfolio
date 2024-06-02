@@ -82,7 +82,7 @@ export const Projects = () => {
   return (
     <SectionType1
       key={"projects"}
-      id="projects"
+      name="projects"
       title="Featured Projects"
       subtitle="Check out some of my latest and greatest web development projects."
       twClassNameForSecondDiv="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-8"

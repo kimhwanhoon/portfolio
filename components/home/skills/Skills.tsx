@@ -33,7 +33,7 @@ export const Skills = () => {
   return (
     <SectionType1
       key={"skills"}
-      id="skills"
+      name="skills"
       title="My Skills"
       subtitle="I'm proficient in a wide range of frontend technologies and tools, allowing me to create exceptional user experiences."
       twClassNameForSecondDiv="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-6 gap-y-10 mt-8"
