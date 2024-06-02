@@ -118,6 +118,7 @@ export const Contact = () => {
           <p className="">Download my CV now</p>
         </div>
         <Button
+          prefetch={false}
           variant="outline"
           component={Link}
           href="/cv/Hwanhoon_Kim_CV_FR_COURT.pdf"
