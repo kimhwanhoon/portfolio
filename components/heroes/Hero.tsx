@@ -1,16 +1,15 @@
 "use client";
 
 import { Button } from "@mantine/core";
-import Link from "next/link";
 import React from "react";
-import { Element } from "react-scroll";
+import { Element, Link } from "react-scroll";
 
 interface HeroProps {
   title: string;
   subtitle: string;
   content: string;
-  firstButton: { title: string; href: string };
-  secondButton: { title: string; href: string };
+  firstButton: { title: string; to: string };
+  secondButton: { title: string; to: string };
   twClassNameForBackground?: string;
 }
 
@@ -44,7 +43,9 @@ export const Hero = ({
           <Button
             className="hover-effect-mild"
             component={Link}
-            href={firstButton?.href ?? "#"}
+            to={firstButton?.to ?? "#"}
+            smooth
+            offset={-120}
           >
             {firstButton.title}
           </Button>
@@ -52,7 +53,9 @@ export const Hero = ({
             className="hover-effect-mild"
             variant="white"
             component={Link}
-            href={secondButton.href ?? "#"}
+            to={secondButton.to ?? "#"}
+            smooth
+            offset={-120}
           >
             {secondButton.title}
           </Button>

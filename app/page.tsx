@@ -17,8 +17,8 @@ const HomePage = () => {
         content="I'm a passionate frontend developer with a strong focus on creating
         visually stunning and user-friendly web applications. Let's bring your
         ideas to life!"
-        firstButton={{ title: "View Portfolio", href: "/#projects" }}
-        secondButton={{ title: "Contact Me", href: "/#contact" }}
+        firstButton={{ title: "View Portfolio", to: "projects" }}
+        secondButton={{ title: "Contact Me", to: "contact" }}
         twClassNameForBackground="hero-bg"
       />
       <Projects />
