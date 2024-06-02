@@ -3,6 +3,7 @@
 import { Burger, Drawer, NavLink } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { menu } from "./Nav";
+import { Link } from "react-scroll";
 
 export const MobileNav = () => {
   const [opened, { toggle, close }] = useDisclosure();
@@ -18,12 +19,14 @@ export const MobileNav = () => {
         position="bottom"
       >
         <nav className="flex-col gap-2">
-          {menu.map(({ name, href }, i) => (
+          {menu.map(({ name, to }, i) => (
             <NavLink
+              component={Link}
               onClick={close}
               key={`mobile-nav-${i}`}
-              href={href}
               label={name}
+              to={to}
+              smooth
             />
           ))}
         </nav>

@@ -6,11 +6,11 @@ const cardType1Contents: CardType1Props[] = [
     image: {
       originalImage: {
         alt: "My Dictionary",
-        src: "https://i.ibb.co/Nrt1k9j/image.png",
+        src: "/projects/my-dictionary-0.webp",
       },
       playback: {
         alt: "My Dictionary",
-        src: "https://i.ibb.co/3YzWG2V/signin-signup-page-11.gif",
+        src: "/projects/my-dictionary-1.gif",
       },
     },
     title: "My Dictionary",
@@ -23,11 +23,11 @@ const cardType1Contents: CardType1Props[] = [
     image: {
       originalImage: {
         alt: "Movie Baba",
-        src: "https://i.ibb.co/vc2Z65M/image.png",
+        src: "/projects/movie-baba-0.webp",
       },
       playback: {
         alt: "Movie Baba",
-        src: "https://i.ibb.co/Rvh6GFj/Screen-Recording-2024-05-30-at-15-08-40.gif",
+        src: "/projects/movie-baba-1.gif",
       },
     },
     title: "Movie Baba",
@@ -40,11 +40,11 @@ const cardType1Contents: CardType1Props[] = [
     image: {
       originalImage: {
         alt: "100 Things to Do Before You Turn into a Zombie",
-        src: "https://i.ibb.co/7pkgvJx/image.png",
+        src: "/projects/zombie-bucketlist-0.webp",
       },
       playback: {
         alt: "100 Things to Do Before You Turn into a Zombie",
-        src: "https://i.ibb.co/ScJrNyK/260345404-e792b83b-e9df-4d77-b138-777c39cbb024.gif",
+        src: "/projects/zombie-bucketlist-1.gif",
       },
     },
     title: "100 Things to Do Before You Turn into a Zombie",
@@ -57,11 +57,11 @@ const cardType1Contents: CardType1Props[] = [
     image: {
       originalImage: {
         alt: "GongGong Play",
-        src: "https://i.ibb.co/vQqrKDM/255395315-7241e40f-147e-4690-a595-4281c9adae2a-Medium.jpg",
+        src: "/projects/gonggong-play-0.webp",
       },
       playback: {
         alt: "GongGong Play",
-        src: "https://i.ibb.co/QvVcL29/Screen-Recording-2024-05-30-at-16-24-25.gif",
+        src: "/projects/gonggong-play-1.gif",
       },
     },
     title: "GongGong Play",
@@ -82,7 +82,7 @@ export const Projects = () => {
   return (
     <SectionType1
       key={"projects"}
-      id="projects"
+      name="projects"
       title="Featured Projects"
       subtitle="Check out some of my latest and greatest web development projects."
       twClassNameForSecondDiv="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-8"
