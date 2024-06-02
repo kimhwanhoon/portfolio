@@ -4,7 +4,6 @@ import { Notifications } from "@mantine/notifications";
 
 import localFont from "@next/font/local";
 
-import { Arimo } from "next/font/google";
 import "./globals.css";
 import "@mantine/core/styles.css";
 import "@mantine/notifications/styles.css";
