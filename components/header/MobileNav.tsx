@@ -27,6 +27,7 @@ export const MobileNav = () => {
               label={name}
               to={to}
               smooth
+              offset={-120}
             />
           ))}
         </nav>

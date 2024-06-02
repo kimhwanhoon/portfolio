@@ -22,6 +22,7 @@ export const Nav = () => {
       component={Link}
       to={to}
       smooth
+      offset={-120}
       variant="subtle"
       key={name}
     >
