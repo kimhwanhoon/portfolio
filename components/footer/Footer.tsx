@@ -1,5 +1,8 @@
-import Link from "next/link";
+"use client";
+
+import { Button } from "@mantine/core";
 import React from "react";
+import { Link } from "react-scroll";
 
 export const Footer = () => {
   return (
@@ -8,35 +11,66 @@ export const Footer = () => {
         <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
           <div className="flex items-center gap-2">
             <h2 className="text-2xl font-bold">
-              <Link href={"/#header"}>KIMHWANHOON</Link>
+              <Button
+                style={{ fontSize: "1.25rem" }}
+                variant="subtle"
+                color="white"
+                component={Link}
+                to="home"
+                className="hover-effect"
+                smooth
+                offset={-120}
+              >
+                KIMHWANHOON
+              </Button>
             </h2>
             {/* <span className="text-lg font-semibold">John Doe</span> */}
           </div>
           <nav className="flex items-center gap-4 md:gap-6">
-            <Link
-              className="text-sm font-medium underline-offset-4 hover:underline"
-              href="/"
+            <Button
+              variant="subtle"
+              color="white"
+              component={Link}
+              className="hover-effect"
+              smooth
+              offset={-120}
+              to="home"
             >
               Home
-            </Link>
-            <Link
-              className="text-sm font-medium underline-offset-4 hover:underline"
-              href="/#projects"
+            </Button>
+            <Button
+              variant="subtle"
+              color="white"
+              component={Link}
+              className="hover-effect"
+              smooth
+              offset={-120}
+              to="projects"
             >
               Projects
-            </Link>
-            <Link
-              className="text-sm font-medium underline-offset-4 hover:underline"
-              href="/#skills"
+            </Button>
+            <Button
+              variant="subtle"
+              color="white"
+              component={Link}
+              className="hover-effect"
+              smooth
+              offset={-120}
+              to="skills"
             >
               Skills
-            </Link>
-            <Link
-              className="text-sm font-medium underline-offset-4 hover:underline"
-              href="/#contact"
+            </Button>
+            <Button
+              variant="subtle"
+              color="white"
+              component={Link}
+              className="hover-effect"
+              smooth
+              offset={-120}
+              to="contact"
             >
               Contact
-            </Link>
+            </Button>
           </nav>
         </div>
       </div>
