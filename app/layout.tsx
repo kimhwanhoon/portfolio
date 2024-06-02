@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { ColorSchemeScript } from "@mantine/core";
 import { Notifications } from "@mantine/notifications";
 
+import localFont from "@next/font/local";
+
 import { Arimo } from "next/font/google";
 import "./globals.css";
 import "@mantine/core/styles.css";
@@ -14,11 +16,10 @@ import "@mantine/charts/styles.css";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
-const arimo = Arimo({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-arimo",
+const arimo = localFont({
+  src: "../public/fonts/Arimo-VariableFont_wght.ttf",
 });
+
 import { ThemeProvider } from "@/theme/ThemeProvider";
 import { Header } from "@/components/header/Header";
 
