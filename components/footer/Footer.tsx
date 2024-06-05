@@ -3,7 +3,6 @@
 import { Logo } from "@/lib/Logo";
 import { menuList } from "@/lib/menuList";
 import { Button } from "@mantine/core";
-import React from "react";
 import { Link } from "react-scroll";
 
 export const Footer = () => {

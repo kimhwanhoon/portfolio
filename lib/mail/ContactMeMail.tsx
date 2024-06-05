@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Heading, Html, Text } from "@react-email/components";
+import { Heading, Html } from "@react-email/components";
 
 interface ContactMeMailProps {
   email: string;
