@@ -26,7 +26,7 @@ export const Footer = () => {
             </h2>
             {/* <span className="text-lg font-semibold">John Doe</span> */}
           </div>
-          <nav className="flex items-center gap-4 md:gap-6">
+          <nav className="flex items-center gap-0 sm:gap-4 md:gap-6">
             <Button
               variant="subtle"
               color="white"

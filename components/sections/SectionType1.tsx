@@ -24,7 +24,7 @@ export const SectionType1: React.FC<SectionType1Props> = ({
     <section
       className={`flex justify-center py-8 md:py-16 ${twClassNameForSectionBackGround}`}
     >
-      <Element name={name} className="container space-y-10 px-4 md:px-6">
+      <Element name={name} className="container space-y-10 px-6">
         <div className="space-y-4 text-center">
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
             {title}
