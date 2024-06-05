@@ -3,13 +3,14 @@
 import { SectionType1 } from "@/components/sections/SectionType1";
 import { TiptapEditor } from "@/components/textEditor/TiptapEditor";
 import { Button, Divider, Modal, TextInput, Textarea } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
+import { useDisclosure, useViewportSize } from "@mantine/hooks";
 import { notifications } from "@mantine/notifications";
 import Image from "next/image";
-import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import { DownloadCV } from "./DownloadCV";
 
 export const Contact = () => {
+  const { width } = useViewportSize();
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");
@@ -84,6 +85,7 @@ export const Contact = () => {
   return (
     <>
       <Modal
+        fullScreen={width <= 425}
         keepMounted={!isSuccess}
         opened={opened}
         onClose={close}
@@ -175,6 +177,7 @@ export const Contact = () => {
               onClick={open}
             />
             <Textarea
+              autosize
               disabled={textareaDisabled}
               label="message"
               placeholder="Content"
@@ -193,20 +196,7 @@ export const Contact = () => {
           </Button>
         </form>
         <Divider className="my-4" />
-        <section className="mx-auto flex max-w-md items-center justify-center gap-8 py-4">
-          <div>
-            <h3 className="text-2xl font-semibold">For hire?</h3>
-            <p className="">Download my CV now</p>
-          </div>
-          <Button
-            prefetch={false}
-            variant="outline"
-            component={Link}
-            href="/cv/Hwanhoon_Kim_CV_FR_COURT.pdf"
-          >
-            Download Now
-          </Button>
-        </section>
+        <DownloadCV />
       </SectionType1>
     </>
   );
