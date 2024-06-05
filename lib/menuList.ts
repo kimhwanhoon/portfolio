@@ -1,6 +1,7 @@
 export const menuList = [
-  { name: "Home", to: "home" },
-  { name: "Projects", to: "projects" },
-  { name: "Skills", to: "skills" },
-  { name: "Contact", to: "contact" },
+  { name: "Home", to: "home", isNextLink: false },
+  { name: "Projects", to: "projects", isNextLink: false },
+  { name: "Skills", to: "skills", isNextLink: false },
+  { name: "Contact", to: "contact", isNextLink: false },
+  { name: "Blog", to: "/blog", isNextLink: true },
 ];
