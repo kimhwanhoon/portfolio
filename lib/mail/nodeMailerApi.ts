@@ -1,6 +1,6 @@
 import "server-only";
 
-const nodemailer = require("nodemailer");
+import nodemailer from "nodemailer";
 
 const nodeMailerApi = nodemailer.createTransport({
   host: "mail.spacemail.com",
@@ -10,6 +10,7 @@ const nodeMailerApi = nodemailer.createTransport({
     user: process.env.MAIL_ADDRESS as string,
     pass: process.env.MAIL_PASSWORD as string,
   },
+  // use below when encountering an error.
   // logger: true,
   // debug: true,
 });

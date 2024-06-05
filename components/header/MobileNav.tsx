@@ -1,8 +1,8 @@
 "use client";
 
+import { menuList } from "@/lib/menuList";
 import { Burger, Drawer, NavLink } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { menu } from "./Nav";
 import { Link } from "react-scroll";
 
 export const MobileNav = () => {
@@ -19,7 +19,7 @@ export const MobileNav = () => {
         position="bottom"
       >
         <nav className="flex-col gap-2">
-          {menu.map(({ name, to }, i) => (
+          {menuList.map(({ name, to }, i) => (
             <NavLink
               component={Link}
               onClick={close}

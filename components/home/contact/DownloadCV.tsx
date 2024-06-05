@@ -13,7 +13,7 @@ export const DownloadCV = () => {
   return (
     <section className="mx-auto flex max-w-md flex-col items-center justify-center gap-4 py-4 sm:flex-row sm:gap-8">
       <div>
-        <h3 className="text-center text-2xl font-semibold">Take my CV!</h3>
+        <h3 className="text-center text-2xl font-semibold">Take my CV</h3>
         <p className="text-center ">Download my CV</p>
       </div>
       <Menu>
