@@ -8,6 +8,7 @@ import Superscript from "@tiptap/extension-superscript";
 import SubScript from "@tiptap/extension-subscript";
 import { FC } from "react";
 import Placeholder from "@tiptap/extension-placeholder";
+import "./tiptapEditor.css";
 
 interface TiptapEditorProps {
   content: string;

@@ -1,16 +1,21 @@
 "use client";
 
 import { SectionType1 } from "@/components/sections/SectionType1";
-import { TiptapEditor } from "@/components/textEditor/TiptapEditor";
-import { Button, Divider, Modal, TextInput, Textarea } from "@mantine/core";
-import { useDisclosure, useViewportSize } from "@mantine/hooks";
+import { Button, Divider, TextInput, Textarea } from "@mantine/core";
+import { useDisclosure } from "@mantine/hooks";
 import { notifications } from "@mantine/notifications";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { DownloadCV } from "./DownloadCV";
+import {
+  notificationContactError,
+  notificationContactSuccess,
+} from "@/lib/notification/contact";
+import { ContactModal } from "./ContactModal";
+
+import "./contact.css";
 
 export const Contact = () => {
-  const { width } = useViewportSize();
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");
@@ -44,25 +49,14 @@ export const Contact = () => {
     );
 
     try {
-      const { error, data } = await fetch("/contact/send-mail", {
+      const { error } = await fetch("/contact/send-mail", {
         method: "post",
         body: formData,
-      }).then((r) => r.json());
-      // to be deleted
+      }).then((res) => res.json());
       if (error) {
-        notifications.show({
-          title: "Error occurred",
-          message:
-            "Something went wrong! 🤥 Please try again or contact me directly at contact@hwanhoon.kim",
-          color: "red",
-          autoClose: 5000,
-        });
+        notifications.show(notificationContactError);
       } else {
-        notifications.show({
-          title: "Message sent!",
-          message: "Your message has been successfully sent to Hwanhoon Kim.",
-          autoClose: 5000,
-        });
+        notifications.show(notificationContactSuccess);
         setEmail("");
         setName("");
         setMessage("");
@@ -71,76 +65,33 @@ export const Contact = () => {
         close();
       }
     } catch (error) {
-      notifications.show({
-        title: "Error occurred",
-        message:
-          "Something went wrong! 🤥 Please try again or contact me directly at contact@hwanhoon.kim",
-        color: "red",
-        autoClose: 5000,
-      });
+      notifications.show(notificationContactError);
     } finally {
       setIsLoading(false);
     }
   };
   return (
     <>
-      <Modal
-        fullScreen={width <= 425}
-        keepMounted={!isSuccess}
+      <ContactModal
+        email={email}
+        isLoading={isLoading}
+        isSuccess={isSuccess}
+        message={message}
+        name={name}
         opened={opened}
-        onClose={close}
-        title="Contact Me"
-        size={"lg"}
-        centered
-      >
-        <form
-          className="mx-auto mt-8 max-w-md space-y-4"
-          onSubmit={(e) => sendMail(e)}
-        >
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div className="space-y-2">
-              <TextInput
-                label="name"
-                placeholder="John Doe"
-                required
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-            </div>
-            <div className="space-y-2">
-              <TextInput
-                label="email"
-                placeholder="john@example.com"
-                required
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
-          </div>
-          <div>
-            <TiptapEditor
-              content={message}
-              setTextEditorMessage={setTextEditorMessage}
-            />
-          </div>
-          <Button
-            loading={isLoading}
-            className="w-full"
-            type="submit"
-            style={{ width: "100%" }}
-          >
-            {isLoading ? "Sending..." : "Send Message"}
-          </Button>
-        </form>
-      </Modal>
+        sendMail={sendMail}
+        setEmail={setEmail}
+        setName={setName}
+        setTextEditorMessage={setTextEditorMessage}
+        close={close}
+      />
       <SectionType1
         key={"contact"}
         name="contact"
         title="Contact Me"
         subtitle="Have a project in mind or just want to say hello? Fill out the form
       below and I'll get back to you as soon as possible."
-        twClassNameForSectionBackGround="contact-bg"
+        twSectionBackground="contact-bg"
       >
         <form
           className="mx-auto mt-8 max-w-md space-y-4"
