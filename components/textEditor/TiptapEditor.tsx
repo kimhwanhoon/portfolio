@@ -40,7 +40,7 @@ export const TiptapEditor: FC<TiptapEditorProps> = ({
   });
 
   return (
-    <RichTextEditor editor={editor} className="min-h-[200px]">
+    <RichTextEditor editor={editor} classNames={{ content: "min-h-[300px]" }}>
       <RichTextEditor.Toolbar sticky stickyOffset={60}>
         <RichTextEditor.ControlsGroup>
           <RichTextEditor.Bold />
