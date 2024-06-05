@@ -13,6 +13,8 @@ import {
 } from "@/lib/notification/contact";
 import { ContactModal } from "./ContactModal";
 
+import "./contact.css";
+
 export const Contact = () => {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -89,7 +91,7 @@ export const Contact = () => {
         title="Contact Me"
         subtitle="Have a project in mind or just want to say hello? Fill out the form
       below and I'll get back to you as soon as possible."
-        twClassNameForSectionBackGround="contact-bg"
+        twSectionBackground="contact-bg"
       >
         <form
           className="mx-auto mt-8 max-w-md space-y-4"

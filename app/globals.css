@@ -23,38 +23,6 @@
   background: radial-gradient(circle, rgba(252, 252, 252, 1) 0%, #d0d9f8 100%);
 }
 
-.bg-crosses {
-  background:
-    radial-gradient(
-        circle,
-        transparent 20%,
-        #ffffff 20%,
-        #ffffff 80%,
-        transparent 80%,
-        transparent
-      )
-      0% 0% / 64px 64px,
-    radial-gradient(
-        circle,
-        transparent 20%,
-        #ffffff 20%,
-        #ffffff 80%,
-        transparent 80%,
-        transparent
-      )
-      32px 32px / 64px 64px,
-    linear-gradient(rgba(76, 110, 245, 0.24) 2px, transparent 2px) 0px -1px / 32px
-      32px,
-    linear-gradient(90deg, rgba(76, 110, 245, 0.24) 2px, #ffffff 2px) -1px 0px /
-      32px 32px #ffffff;
-  background-size:
-    64px 64px,
-    64px 64px,
-    32px 32px,
-    32px 32px;
-  background-color: #ffffff;
-}
-
 .hero-bg {
   --s: 25vmin;
   --p: calc(var(--s) / 2);
@@ -142,32 +110,4 @@
   body {
     animation: none;
   }
-}
-
-/* contact bg */
-
-.contact-bg {
-  background:
-    linear-gradient(135deg, #0000 20.5%, #ffffff 0 29.5%, #0000 0) 0 20px,
-    linear-gradient(45deg, #0000 8%, #ffffff 0 17%, #0000 0 58%) 40px 0,
-    linear-gradient(
-      135deg,
-      #0000 8%,
-      #ffffff 0 17%,
-      #0000 0 58%,
-      #ffffff 0 67%,
-      #0000 0
-    ),
-    linear-gradient(
-      45deg,
-      #0000 8%,
-      #ffffff 0 17%,
-      #0000 0 58%,
-      #ffffff 0 67%,
-      #0000 0 83%,
-      #ffffff 0 92%,
-      #0000 0
-    ),
-    rgba(31, 143, 255, 0.13);
-  background-size: 80px 80px;
 }

@@ -1,0 +1,25 @@
+.contact-bg {
+  background:
+    linear-gradient(135deg, #0000 20.5%, #ffffff 0 29.5%, #0000 0) 0 20px,
+    linear-gradient(45deg, #0000 8%, #ffffff 0 17%, #0000 0 58%) 40px 0,
+    linear-gradient(
+      135deg,
+      #0000 8%,
+      #ffffff 0 17%,
+      #0000 0 58%,
+      #ffffff 0 67%,
+      #0000 0
+    ),
+    linear-gradient(
+      45deg,
+      #0000 8%,
+      #ffffff 0 17%,
+      #0000 0 58%,
+      #ffffff 0 67%,
+      #0000 0 83%,
+      #ffffff 0 92%,
+      #0000 0
+    ),
+    rgba(31, 143, 255, 0.13);
+  background-size: 80px 80px;
+}
