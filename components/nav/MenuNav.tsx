@@ -23,7 +23,8 @@ export const MenuNav: React.FC<MenuNavProps> = ({ color }) => {
       {menuList.map(({ name, to, href }, i) => {
         if (
           (pathname !== "/" && name !== "Blog") ||
-          (pathname === "/" && name === "Blog")
+          (pathname === "/" && name === "Blog") ||
+          (pathname !== "/" && name === "Blog")
         ) {
           return (
             <Button

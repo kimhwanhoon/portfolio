@@ -11,7 +11,7 @@ export const Footer = () => {
           <div className="flex items-center gap-2">
             <Logo key="footer logo" color="white" />
           </div>
-          <nav className="flex items-center gap-0 sm:gap-4 md:gap-6">
+          <nav className="flex flex-wrap items-center justify-center gap-0 sm:gap-4 md:gap-6">
             <MenuNav key="footer nav" color="white" />
           </nav>
         </div>

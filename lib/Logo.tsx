@@ -29,12 +29,11 @@ export const Logo: React.FC<LogoProps> = ({ color }) => {
         KIMHWANHOON
       </Button>
     );
-  } else if (pathname === "/blog") {
+  } else {
     return (
       <Button component={NextLink} href={"/"} {...commonProps}>
         KIMHWANHOON
       </Button>
     );
   }
-  return null;
 };
