@@ -15,7 +15,7 @@ export const BlogPostList: React.FC<BlogPostList> = ({ posts }) => {
     return (
       <div
         key={`blog-post-${i}`}
-        className="overflow-hidden rounded-lg shadow-md"
+        className="hover-effect-mild-no-cursor-pointer overflow-hidden rounded-lg shadow-md"
       >
         <Link href={`/blog/${slug}`} prefetch={false}>
           <img
@@ -40,7 +40,11 @@ export const BlogPostList: React.FC<BlogPostList> = ({ posts }) => {
             </p>
           </div>
           <h3 className="mb-2 text-lg font-semibold">
-            <Link href="#" className="hover:underline" prefetch={false}>
+            <Link
+              href={`/blog/${slug}`}
+              className="hover:underline"
+              prefetch={false}
+            >
               {title}
             </Link>
           </h3>
