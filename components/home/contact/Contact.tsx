@@ -177,6 +177,7 @@ export const Contact = () => {
               onClick={open}
             />
             <Textarea
+              classNames={{ input: "min-h-[150px]" }}
               autosize
               disabled={textareaDisabled}
               label="message"
