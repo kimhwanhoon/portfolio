@@ -1,4 +1,4 @@
-@layer tailwind-base;
+@layer tailwind-bas, mantine, components;
 
 @layer tailwind-base {
   @tailwind base;
@@ -170,8 +170,4 @@
     ),
     rgba(31, 143, 255, 0.13);
   background-size: 80px 80px;
-}
-
-.tiptap.ProseMirror {
-  @apply min-h-[200px];
 }
