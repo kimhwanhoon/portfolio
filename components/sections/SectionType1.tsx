@@ -10,6 +10,7 @@ interface SectionType1Props {
   children: ReactNode;
   twClassNameForSecondDiv?: string;
   twSectionBackground?: string;
+  id: string;
 }
 
 export const SectionType1: React.FC<SectionType1Props> = ({
@@ -19,12 +20,13 @@ export const SectionType1: React.FC<SectionType1Props> = ({
   children,
   twClassNameForSecondDiv = "",
   twSectionBackground = "",
+  id,
 }) => {
   return (
     <section
       className={`flex justify-center py-8 md:py-16 ${twSectionBackground}`}
     >
-      <Element name={name} className="container space-y-10 px-6">
+      <Element id={id} name={name} className="container space-y-10 px-6">
         <div className="space-y-4 text-center">
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
             {title}

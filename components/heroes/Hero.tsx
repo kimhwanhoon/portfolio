@@ -26,17 +26,18 @@ export const Hero = ({
       className={`relative flex items-center justify-center py-20 md:py-32 ${twClassNameForBackground}`}
     >
       <Element
+        id="home"
         name="home"
         className="absolute left-0 top-0 z-10 h-full w-full bg-[#33333370]"
       ></Element>
       <div className="container z-20 space-y-6 px-4 text-center md:px-6">
-        <h1 className="text-shadow-outline text-4xl font-bold tracking-tight text-white decoration-wavy md:text-6xl ">
+        <h1 className="text-4xl font-bold tracking-tight text-white decoration-wavy text-shadow-outline md:text-6xl ">
           {title}
         </h1>
-        <p className="text-shadow-outline text-xl font-semibold text-white md:text-2xl ">
+        <p className="text-xl font-semibold text-white text-shadow-outline md:text-2xl ">
           {subtitle}
         </p>
-        <p className="text-shadow-outline mx-auto max-w-[600px] font-medium text-white">
+        <p className="mx-auto max-w-[600px] font-medium text-white text-shadow-outline">
           {content}
         </p>
         <div className="flex justify-center gap-4">

@@ -5,12 +5,14 @@ import { Button, type ButtonProps } from "@mantine/core";
 import { menuList } from "@/lib/menuList";
 import NextLink from "next/link";
 import { Link as ReactScrollLink } from "react-scroll";
+import { usePathname } from "next/navigation";
 
 interface MenuNavProps {
   color: ButtonProps["color"];
 }
 
 export const MenuNav: React.FC<MenuNavProps> = ({ color }) => {
+  const pathname = usePathname();
   const commonButtonProps = {
     className: "hover-effect",
     color,
@@ -18,14 +20,17 @@ export const MenuNav: React.FC<MenuNavProps> = ({ color }) => {
   };
   return (
     <>
-      {menuList.map(({ name, to, isNextLink }, i) => {
-        if (isNextLink) {
+      {menuList.map(({ name, to, href }, i) => {
+        if (
+          (pathname !== "/" && name !== "Blog") ||
+          (pathname === "/" && name === "Blog")
+        ) {
           return (
             <Button
               {...commonButtonProps}
               key={`menuNav-${name}`}
               component={NextLink}
-              href={to}
+              href={href}
             >
               {name}
             </Button>
