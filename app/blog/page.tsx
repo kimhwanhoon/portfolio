@@ -39,7 +39,7 @@ const BlogPage: React.FC<BlogPageProps> = async ({ searchParams }) => {
   }
 
   return (
-    <main className="relative min-h-[calc(100dvh-202px)]">
+    <main className="relative min-h-[calc(100dvh-202px)] pb-8 sm:pb-0">
       <BlogPostSection posts={data} totalPostsNumber={data2.length} />
     </main>
   );
