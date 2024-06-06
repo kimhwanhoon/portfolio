@@ -1,5 +1,6 @@
+import { BlogPageNotFound } from "@/components/blog/list/BlogPageNotFound";
 import { BlogPostSection } from "@/components/blog/list/BlogPostSection";
-import { SectionType2 } from "@/components/sections/SectionType2";
+import { Error } from "@/components/global/Error";
 import { getPageRange } from "@/lib/blog/getPageRange";
 import { createClient } from "@/lib/supabase/client";
 import { BlogPostType } from "@/types/blogPostType";
@@ -12,37 +13,34 @@ interface BlogPageProps {
 }
 
 const BlogPage: React.FC<BlogPageProps> = async ({ searchParams }) => {
-  const pageName = Number(searchParams.page) as number;
+  const pageName: number = Number(searchParams.page);
 
   if (isNaN(pageName)) {
     redirect("/blog?page=1");
   }
-  const pageRange = getPageRange(pageName);
-  let posts: BlogPostType[];
+  const pageRange: [number, number] = getPageRange(pageName);
 
   const supabase = createClient();
+
   const { data, error } = await supabase
     .from("blog_posts")
     .select("*")
     .eq("status", "published")
     .range(...pageRange);
 
-  if (error) {
+  // just to get length of data
+  const { data: data2, error: error2 } = await supabase
+    .from("blog_posts")
+    .select("*")
+    .eq("status", "published");
+
+  if (error || error2) {
     redirect("blog/error");
-  } else {
-    posts = data;
   }
 
   return (
-    <main className="min-h-[calc(100dvh-202px)]">
-      (
-      <SectionType2
-        key={"blog section"}
-        title="Insights and Reflections"
-        subtitle="Thoughts on Technology, Lifestyle, and More"
-      />
-      )
-      <BlogPostSection posts={posts} />
+    <main className="relative min-h-[calc(100dvh-202px)]">
+      <BlogPostSection posts={data} totalPostsNumber={data2.length} />
     </main>
   );
 };
