@@ -1,9 +1,6 @@
-import { BlogPageNotFound } from "@/components/blog/list/BlogPageNotFound";
 import { BlogPostSection } from "@/components/blog/list/BlogPostSection";
-import { Error } from "@/components/global/Error";
 import { getPageRange } from "@/lib/blog/getPageRange";
 import { createClient } from "@/lib/supabase/client";
-import { BlogPostType } from "@/types/blogPostType";
 import { redirect } from "next/navigation";
 
 interface BlogPageProps {
