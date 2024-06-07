@@ -1,37 +1,19 @@
 /* eslint-disable @next/next/no-img-element */
 import { Skeleton } from "@mantine/core";
-import { IconCalendar, IconUser } from "@tabler/icons-react";
-import Link from "next/link";
 
 const BlogPostLoading = () => {
   return (
     <main className="py-12 md:py-20">
       <header className="bg-white shadow">
         <div className="container mx-auto px-4 py-6 md:px-8 md:py-8 lg:py-10">
-          <div className="flex flex-col items-center justify-between gap-2 md:flex-row">
-            <div className="space-y-2">
-              <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
-                data.title
-              </h1>
-              <div className="flex items-center gap-4 text-gray-500 ">
-                <div className="flex items-center">
-                  <IconUser className="mr-1 inline h-4 w-4" />
-                  Hwanhoon Kim
-                </div>
-                <div className="flex items-center">
-                  <IconCalendar className="mr-1 inline h-4 w-4" />
-                  data.created_at!
-                </div>
-              </div>
+          <div className="flex flex-col items-center justify-between gap-2 md:flex-row md:gap-4">
+            <div className="flex w-full flex-col gap-2 md:gap-12">
+              <Skeleton height={22} radius={"xl"} width="100%" />
+              <Skeleton height={22} radius={"xl"} width="30%" />
+              <Skeleton height={22} radius={"xl"} width="30%" />
             </div>
 
-            <img
-              src={""}
-              width={600}
-              height={400}
-              alt={""}
-              className="mt-4 h-48 w-full rounded-lg object-cover md:mt-0 md:h-32 md:w-auto"
-            />
+            <Skeleton height={150} radius={"xl"} width="60%" />
           </div>
         </div>
       </header>
@@ -39,8 +21,23 @@ const BlogPostLoading = () => {
       {/*  */}
       <div className="container mx-auto grid grid-cols-1 gap-8 py-8 sm:px-4 md:grid-cols-3 md:py-8 lg:py-12">
         <div className="prose prose-gray dark:prose-invert col-span-2 max-w-none">
-          <section className="sm:p-4">
-            <div>긴 글</div>
+          <section className="flex flex-col gap-2 sm:p-4">
+            <Skeleton height={25} radius={"xl"} width="80%" />
+            <Skeleton height={22} radius={"xl"} width="60%" />
+
+            <Skeleton height={16} radius={"xl"} width="90%" mt={16} />
+            {Array(16)
+              .fill(0)
+              .map((_, i) => (
+                <Skeleton
+                  key={`text-skeleton-${i}`}
+                  height={12}
+                  radius={"xl"}
+                  width="90%"
+                  mt={6}
+                />
+              ))}
+            <Skeleton height={12} radius={"xl"} width="60%" mt={6} />
           </section>
         </div>
         <aside className="space-y-8">
@@ -50,27 +47,13 @@ const BlogPostLoading = () => {
             <ul className="space-y-4">
               {[0, 1, 2].map((el, i) => (
                 <li key={`recent-post-${i}`}>
-                  <Link
-                    href=""
-                    className="flex items-center space-x-4"
-                    prefetch={false}
-                  >
-                    <img
-                      src=""
-                      width={80}
-                      height={60}
-                      alt=""
-                      className="h-15 w-20 rounded-lg object-cover"
-                    />
-                    <div>
-                      <h4 className="text-base font-medium">
-                        recentPost.title
-                      </h4>
-                      <p className="text-sm text-gray-500 ">
-                        recentPost.created_at!
-                      </p>
+                  <div className="flex items-center space-x-4">
+                    <Skeleton width={80} height={60} />
+                    <div className="flex w-full flex-col">
+                      <Skeleton height={16} radius={"xl"} width="60%" mt={6} />
+                      <Skeleton height={16} radius={"xl"} width="80%" mt={6} />
                     </div>
-                  </Link>
+                  </div>
                 </li>
               ))}
             </ul>
@@ -81,13 +64,7 @@ const BlogPostLoading = () => {
             <ul className="space-y-2">
               {[0, 1, 2, 3, 4].map((el, i) => (
                 <li key={i}>
-                  <Link
-                    href={""}
-                    className="text-gray-500 hover:text-gray-900"
-                    prefetch={false}
-                  >
-                    category.name
-                  </Link>
+                  <Skeleton height={18} radius={"xl"} width="80%" mt={14} />
                 </li>
               ))}
             </ul>
@@ -98,27 +75,13 @@ const BlogPostLoading = () => {
             <ul className="space-y-4">
               {[0, 1, 2].map((el, i) => (
                 <li key={`recent-post-${i}`}>
-                  <Link
-                    href=""
-                    className="flex items-center space-x-4"
-                    prefetch={false}
-                  >
-                    <img
-                      src=""
-                      width={80}
-                      height={60}
-                      alt=""
-                      className="h-15 w-20 rounded-lg object-cover"
-                    />
-                    <div>
-                      <h4 className="text-base font-medium">
-                        recentPost.title
-                      </h4>
-                      <p className="text-sm text-gray-500 ">
-                        recentPost.created_at!
-                      </p>
+                  <div className="flex items-center space-x-4">
+                    <Skeleton width={80} height={60} />
+                    <div className="flex w-full flex-col">
+                      <Skeleton height={16} radius={"xl"} width="60%" mt={6} />
+                      <Skeleton height={16} radius={"xl"} width="80%" mt={6} />
                     </div>
-                  </Link>
+                  </div>
                 </li>
               ))}
             </ul>
