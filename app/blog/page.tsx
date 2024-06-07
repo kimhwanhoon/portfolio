@@ -1,6 +1,7 @@
 import { BlogPostSection } from "@/components/blog/list/BlogPostSection";
 import { getPageRange } from "@/lib/blog/getPageRange";
 import { createClient } from "@/lib/supabase/client";
+import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 
 interface BlogPageProps {
@@ -8,6 +9,22 @@ interface BlogPageProps {
     page: string;
   };
 }
+
+export const metadata: Metadata = {
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+};
 
 const BlogPage: React.FC<BlogPageProps> = async ({ searchParams }) => {
   const pageName: number = Number(searchParams.page);

@@ -13,22 +13,6 @@ interface BlogPostPageProps {
   searchParams: { [key: string]: string | string[] | undefined };
 }
 
-export const metadata: Metadata = {
-  robots: {
-    index: true,
-    follow: true,
-    nocache: false,
-    googleBot: {
-      index: true,
-      follow: true,
-      noimageindex: false,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-};
-
 export async function generateMetadata(
   { params: { slug }, searchParams }: BlogPostPageProps,
   parent: ResolvingMetadata,
@@ -64,9 +48,7 @@ export async function generateStaticParams() {
   const supabase = createClient({ cached: true });
   const { data, error } = await supabase.from("blog_posts").select("slug");
 
-  return data?.map((post) => ({
-    slug: post.slug,
-  }));
+  return data ? data.map((post) => ({ slug: post.slug })) : [];
 }
 
 const BlogPostPage: React.FC<BlogPostPageProps> = async ({
