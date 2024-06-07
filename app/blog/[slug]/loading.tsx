@@ -7,7 +7,7 @@ const BlogPostLoading = () => {
   return (
     <main className="py-12 md:py-20">
       <header className="bg-white shadow">
-        <div className="container mx-auto py-6 sm:px-4 md:px-8 md:py-8 lg:py-10">
+        <div className="container mx-auto px-4 py-6 md:px-8 md:py-8 lg:py-10">
           <div className="flex flex-col items-center justify-between gap-2 md:flex-row">
             <div className="space-y-2">
               <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
