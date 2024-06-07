@@ -3,6 +3,7 @@ import { getPageRange } from "@/lib/blog/getPageRange";
 import { createClient } from "@/lib/supabase/client";
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
+import BlogPostsLoading from "./loading";
 
 interface BlogPageProps {
   searchParams: {
