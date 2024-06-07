@@ -3,7 +3,6 @@ import { BlogPost } from "@/components/blog/post/BlogPost";
 import { BlogPostHeader } from "@/components/blog/post/BlogPostHeader";
 import { BlogPostSide } from "@/components/blog/post/BlogPostSide";
 import { createClient } from "@/lib/supabase/client";
-import Link from "next/link";
 import { redirect } from "next/navigation";
 
 interface BlogPostPageProps {

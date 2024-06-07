@@ -19,15 +19,14 @@ const BlogPage: React.FC<BlogPageProps> = async ({ searchParams }) => {
 
   const supabase = createClient();
 
-  const { data, error: postDataFetchError } = await supabase
+  const { data: rangedData, error: postDataFetchError } = await supabase
     .from("blog_posts")
     .select("*")
     .eq("status", "published")
+    .order("created_at", { ascending: false })
     .range(...pageRange);
 
-  // why full data ?
-  // 1. to get length of data
-  // 2. to make recent posts | related posts
+  // get full data to make pagination
   const { data: totalData, error: totalDataFetchError } = await supabase
     .from("blog_posts")
     .select("*")
@@ -39,7 +38,7 @@ const BlogPage: React.FC<BlogPageProps> = async ({ searchParams }) => {
 
   return (
     <main className="relative min-h-[calc(100dvh-202px)] pb-8 sm:pb-0">
-      <BlogPostSection posts={data} totalPostsNumber={totalData.length} />
+      <BlogPostSection posts={rangedData} totalPostsNumber={totalData.length} />
     </main>
   );
 };
