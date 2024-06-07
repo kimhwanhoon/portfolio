@@ -19,6 +19,7 @@ const arimo = localFont({
 
 import { ThemeProvider } from "@/theme/ThemeProvider";
 import { Header } from "@/components/header/Header";
+import { Footer } from "@/components/footer/Footer";
 
 export const metadata: Metadata = {
   title: "kimhwanhoon - portfolio website",
@@ -65,6 +66,7 @@ export default function RootLayout({
           <Notifications position="top-center" />
           <Header />
           {children}
+          <Footer />
         </ThemeProvider>
         <Analytics />
         <SpeedInsights />

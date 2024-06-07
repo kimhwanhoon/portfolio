@@ -1,9 +1,7 @@
 "use client";
 
 import { Logo } from "@/lib/Logo";
-import { menuList } from "@/lib/menuList";
-import { Button } from "@mantine/core";
-import { Link } from "react-scroll";
+import { MenuNav } from "../nav/MenuNav";
 
 export const Footer = () => {
   return (
@@ -13,21 +11,8 @@ export const Footer = () => {
           <div className="flex items-center gap-2">
             <Logo key="footer logo" color="white" />
           </div>
-          <nav className="flex items-center gap-0 sm:gap-4 md:gap-6">
-            {menuList.map(({ name, to }, i) => (
-              <Button
-                key={`footerMenu-${i}`}
-                variant="subtle"
-                color="white"
-                component={Link}
-                className="hover-effect"
-                smooth
-                offset={-120}
-                to={to}
-              >
-                {name}
-              </Button>
-            ))}
+          <nav className="flex flex-wrap items-center justify-center gap-0 sm:gap-4 md:gap-6">
+            <MenuNav key="footer nav" color="white" />
           </nav>
         </div>
       </div>

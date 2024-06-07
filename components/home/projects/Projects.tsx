@@ -5,6 +5,7 @@ import { projectsList } from "./projectsList";
 export const Projects = () => {
   return (
     <SectionType1
+      id="projects"
       key="projects"
       name="projects"
       title="Featured Projects"
