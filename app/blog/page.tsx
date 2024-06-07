@@ -19,25 +19,27 @@ const BlogPage: React.FC<BlogPageProps> = async ({ searchParams }) => {
 
   const supabase = createClient();
 
-  const { data, error } = await supabase
+  const { data, error: postDataFetchError } = await supabase
     .from("blog_posts")
     .select("*")
     .eq("status", "published")
     .range(...pageRange);
 
-  // just to get length of data
-  const { data: data2, error: error2 } = await supabase
+  // why full data ?
+  // 1. to get length of data
+  // 2. to make recent posts | related posts
+  const { data: totalData, error: totalDataFetchError } = await supabase
     .from("blog_posts")
     .select("*")
     .eq("status", "published");
 
-  if (error || error2) {
+  if (postDataFetchError || totalDataFetchError) {
     redirect("blog/error");
   }
 
   return (
     <main className="relative min-h-[calc(100dvh-202px)] pb-8 sm:pb-0">
-      <BlogPostSection posts={data} totalPostsNumber={data2.length} />
+      <BlogPostSection posts={data} totalPostsNumber={totalData.length} />
     </main>
   );
 };

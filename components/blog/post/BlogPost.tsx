@@ -12,7 +12,7 @@ interface BlogPostProps {
 export const BlogPost: React.FC<BlogPostProps> = ({ data }) => {
   return (
     <TypographyStylesProvider>
-      <section className="p-8 sm:p-16">
+      <section className="sm:p-4">
         <Markdown
           components={{
             code(props) {
