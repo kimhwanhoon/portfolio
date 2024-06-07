@@ -3,10 +3,13 @@
 import { menuList } from "@/lib/menuList";
 import { Burger, Drawer, NavLink } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { Link } from "react-scroll";
+import NextLink from "next/link";
+import { Link as ReactScrollLink } from "react-scroll";
+import { usePathname } from "next/navigation";
 
 export const MobileNav = () => {
   const [opened, { toggle, close }] = useDisclosure();
+  const pathname = usePathname();
 
   return (
     <>
@@ -19,17 +22,34 @@ export const MobileNav = () => {
         position="bottom"
       >
         <nav className="flex-col gap-2">
-          {menuList.map(({ name, to }, i) => (
-            <NavLink
-              component={Link}
-              onClick={close}
-              key={`mobile-nav-${i}`}
-              label={name}
-              to={to}
-              smooth
-              offset={-120}
-            />
-          ))}
+          {menuList.map(({ name, to, href }, i) => {
+            if (
+              (pathname !== "/" && name !== "Blog") ||
+              (pathname === "/" && name === "Blog") ||
+              (pathname !== "/" && name === "Blog")
+            ) {
+              return (
+                <NavLink
+                  key={`mobile-nav-${i}`}
+                  component={NextLink}
+                  onClick={close}
+                  label={name}
+                  href={href}
+                />
+              );
+            } else {
+              return (
+                <NavLink
+                  key={`menuNav-${i}`}
+                  component={ReactScrollLink}
+                  to={to}
+                  smooth
+                  offset={-120}
+                  label={name}
+                />
+              );
+            }
+          })}
         </nav>
       </Drawer>
       <Burger

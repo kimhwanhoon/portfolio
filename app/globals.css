@@ -14,6 +14,10 @@
   @apply cursor-pointer duration-300 ease-in-out hover:scale-[1.025];
 }
 
+.hover-effect-mild-no-cursor-pointer {
+  @apply duration-300 ease-in-out hover:scale-[1.015];
+}
+
 .text-15 {
   @apply text-[15px];
 }

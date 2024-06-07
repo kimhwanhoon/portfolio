@@ -6,6 +6,7 @@ import "./skills.css";
 export const Skills = () => {
   return (
     <SectionType1
+      id="skills"
       key={"skills"}
       name="skills"
       title="My Skills"

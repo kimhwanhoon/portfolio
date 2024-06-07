@@ -86,6 +86,7 @@ export const Contact = () => {
         close={close}
       />
       <SectionType1
+        id="contact"
         key={"contact"}
         name="contact"
         title="Contact Me"
