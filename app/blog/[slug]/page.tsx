@@ -25,7 +25,7 @@ export async function generateMetadata(
     .single();
 
   return {
-    title: data?.title,
+    title: `${data?.title} - KIMHWANHOON`,
     openGraph: {
       title: data?.title,
       description: data?.excerpt ?? "",
@@ -68,8 +68,8 @@ const BlogPostPage: React.FC<BlogPostPageProps> = async ({
   return (
     <main className="min-h-[calc(100dvh-202px)]">
       <BlogPostHeader data={data} />
-      <div className="container mx-auto grid grid-cols-1 gap-8 py-8 sm:px-4 md:grid-cols-3 md:py-8 lg:py-12">
-        <div className="prose prose-gray dark:prose-invert col-span-2 max-w-none">
+      <div className="mx-auto grid w-full grid-cols-1 gap-8 px-4 py-8 md:grid-cols-3 md:py-8 lg:py-12">
+        <div className="prose prose-gray dark:prose-invert max-w-none md:col-span-2">
           <BlogPost data={data} />
         </div>
         <BlogPostSide data={data} />

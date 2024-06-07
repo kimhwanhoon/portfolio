@@ -58,7 +58,7 @@ export const BlogPostSide: React.FC<BlogPostSideProps> = async ({ data }) => {
     <li key={`recent-post-${i}`}>
       <Link
         href={`/blog/${relatedPost.slug}`}
-        className="flex items-center space-x-4"
+        className="flex flex-col items-center space-x-4 lg:flex-row"
         prefetch={false}
       >
         <img
@@ -66,11 +66,13 @@ export const BlogPostSide: React.FC<BlogPostSideProps> = async ({ data }) => {
           width={80}
           height={60}
           alt={relatedPost.title}
-          className="h-15 w-20 rounded-lg object-cover"
+          className="lg:h-15 w-full rounded-lg object-cover lg:w-20"
         />
         <div>
-          <h4 className="text-base font-medium">{relatedPost.title}</h4>
-          <p className="text-sm text-gray-500 ">
+          <h4 className="text-sm font-medium md:text-base">
+            {relatedPost.title}
+          </h4>
+          <p className="text-xs text-gray-500 md:text-sm ">
             {dateFormatter(relatedPost.created_at!)}
           </p>
         </div>
@@ -91,7 +93,7 @@ export const BlogPostSide: React.FC<BlogPostSideProps> = async ({ data }) => {
   ));
 
   return (
-    <aside className="space-y-8">
+    <aside className=" space-y-8">
       {/* related posts  */}
       <div className="rounded-lg bg-white p-6 shadow">
         <h3 className="mb-4 text-lg font-bold">Related Posts</h3>
