@@ -3,18 +3,76 @@ import { BlogPost } from "@/components/blog/post/BlogPost";
 import { BlogPostHeader } from "@/components/blog/post/BlogPostHeader";
 import { BlogPostSide } from "@/components/blog/post/BlogPostSide";
 import { createClient } from "@/lib/supabase/client";
+import type { Metadata, ResolvingMetadata } from "next";
 import { redirect } from "next/navigation";
 
 interface BlogPostPageProps {
   params: {
     slug: string;
   };
+  searchParams: { [key: string]: string | string[] | undefined };
+}
+
+export const metadata: Metadata = {
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+};
+
+export async function generateMetadata(
+  { params: { slug }, searchParams }: BlogPostPageProps,
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
+  const supabase = createClient({ cached: true });
+  const { data, error } = await supabase
+    .from("blog_posts")
+    .select("*")
+    .eq("slug", slug)
+    .single();
+
+  return {
+    title: data?.title,
+    openGraph: {
+      title: data?.title,
+      description: data?.excerpt ?? "",
+      url: `https://hwanhoon.kim/blog/${data?.slug}`,
+      siteName: "KIMHWANHOON",
+      images: [
+        {
+          url: data?.featured_image ?? "",
+          width: 800,
+          height: 600,
+        },
+      ],
+      locale: "en_US",
+      type: "website",
+    },
+  };
+}
+
+export async function generateStaticParams() {
+  const supabase = createClient({ cached: true });
+  const { data, error } = await supabase.from("blog_posts").select("slug");
+
+  return data?.map((post) => ({
+    slug: post.slug,
+  }));
 }
 
 const BlogPostPage: React.FC<BlogPostPageProps> = async ({
   params: { slug },
 }) => {
-  const supabase = createClient();
+  const supabase = createClient({ cached: true });
   const { data, error } = await supabase
     .from("blog_posts")
     .select("*")
