@@ -19,8 +19,8 @@ export type Database = {
           id: number
           is_featured: boolean | null
           slug: string | null
-          status: string | null
-          tags: string | null
+          status: Database["public"]["Enums"]["status_enum"]
+          tags: string[] | null
           title: string
           updated_at: string | null
           view_count: number | null
@@ -34,8 +34,8 @@ export type Database = {
           id?: number
           is_featured?: boolean | null
           slug?: string | null
-          status?: string | null
-          tags?: string | null
+          status?: Database["public"]["Enums"]["status_enum"]
+          tags?: string[] | null
           title: string
           updated_at?: string | null
           view_count?: number | null
@@ -49,8 +49,8 @@ export type Database = {
           id?: number
           is_featured?: boolean | null
           slug?: string | null
-          status?: string | null
-          tags?: string | null
+          status?: Database["public"]["Enums"]["status_enum"]
+          tags?: string[] | null
           title?: string
           updated_at?: string | null
           view_count?: number | null
@@ -136,6 +136,7 @@ export type Database = {
         | "Goal Setting"
         | "Mental Health"
         | "Productivity"
+      status_enum: "draft" | "published" | "archived" | "deleted"
     }
     CompositeTypes: {
       [_ in never]: never
