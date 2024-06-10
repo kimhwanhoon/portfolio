@@ -1,17 +1,23 @@
-"use client";
-
+import { createClient } from "@/lib/supabase/client";
 import { BlogPostListTagSelect } from "./BlogPostListTagSelect";
+import { BlogPostListCategorySelect } from "./BlogPostListCategorySelect";
 
-import type { BlogPostType } from "@/types/blogPostType";
+export const BlogFilter: React.FC = async () => {
+  const supabase = createClient({ cached: true });
+  const { data: categoryNames, error: categoryFetchError } = await supabase
+    .from("categories")
+    .select("name");
 
-interface BlogFilterProps {
-  totalPosts: BlogPostType[];
-}
+  const { data: tagNames, error: tagsFetchError } = await supabase
+    .from("blog_posts")
+    .select("tags");
 
-export const BlogFilter: React.FC<BlogFilterProps> = ({ totalPosts }) => {
+  const tagsList = new Set(tagNames?.flatMap((tag) => tag.tags)) as Set<string>;
+
   return (
     <section className="flex gap-4 p-4 sm:p-8">
-      <BlogPostListTagSelect totalPosts={totalPosts} />
+      <BlogPostListTagSelect tagsList={tagsList} />
+      <BlogPostListCategorySelect categoryNames={categoryNames} />
     </section>
   );
 };

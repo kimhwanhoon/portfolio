@@ -1,25 +1,24 @@
+"use client";
+
 import { MultiSelect } from "@mantine/core";
 
-import type { BlogPostType } from "@/types/blogPostType";
-
 interface BlogPostListTagSelectProps {
-  totalPosts: BlogPostType[];
+  tagsList: Set<string>;
 }
 
 export const BlogPostListTagSelect: React.FC<BlogPostListTagSelectProps> = ({
-  totalPosts,
+  tagsList,
 }) => {
-  const totalTagList = JSON.stringify(totalPosts.flatMap((el) => el.tags));
   const multiSelectProps = {
     label: "Tags",
     placeholder: "Select Tag(s)",
-    data: ["tag", "tag1"],
+    data: Array.from(tagsList),
     searchable: true,
   };
   return (
     <>
       <MultiSelect className="w-full" {...multiSelectProps} />
-      {totalTagList}
+      {/* {totalTagList} */}
     </>
   );
 };

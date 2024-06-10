@@ -56,7 +56,7 @@ export const BlogMain: React.FC<BlogMainProps> = async ({
 
   return (
     <>
-      <BlogFilter totalPosts={dataToPass} />
+      <BlogFilter />
       <BlogPostSection posts={dataToPass} totalPostsNumber={total} />
     </>
   );
