@@ -46,7 +46,7 @@ export const BlogMain: React.FC<BlogMainProps> = async ({
 
   if (isNaN(pageName)) {
     redirect(
-      `/blog?${categories ? `categories=${categories}&` : ""}${tags ? `tags=${tags}&` : ""}${ascending ? "ascending=true" : "ascending=false"}page=1`,
+      `/blog?${categories ? `categories=${categories}&` : ""}${tags ? `tags=${tags}&` : ""}${ascending ? "ascending=true&" : "ascending=false&"}page=1`,
     );
   }
 
