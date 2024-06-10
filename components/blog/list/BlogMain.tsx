@@ -13,87 +13,51 @@ interface BlogMainProps {
   };
 }
 
+const fetchBlogPosts = async (
+  supabase: any,
+  pageRange?: [number, number],
+  category?: string,
+  tags?: string,
+): Promise<{ data: BlogPostType[]; total: number }> => {
+  let query = supabase
+    .from("blog_posts")
+    .select("*", { count: "exact" })
+    .eq("status", "published")
+    .order("created_at", { ascending: false });
+
+  if (category) query = query.eq("category", category);
+  if (tags) query = query.contains("tags", [tags]);
+  if (pageRange) query = query.range(...pageRange);
+
+  const { data, error, count } = await query;
+  if (error) return { data: [], total: 0 };
+  return { data: data || [], total: count || 0 };
+};
+
 export const BlogMain: React.FC<BlogMainProps> = async ({
   searchParams: { page, category, tags },
 }) => {
-  let dataToPass: BlogPostType[];
-  const pageName: number = Number(page);
+  const pageName = Number(page);
 
   if (isNaN(pageName)) {
-    redirect("/blog?page=1");
+    redirect(
+      `/blog?${category ? `category=${category}&` : ""}${tags ? `tags=${tags}&` : ""}page=1`,
+    );
   }
-  const pageRange: [number, number] = getPageRange(pageName);
 
+  const pageRange = getPageRange(pageName);
   const supabase = createClient();
-
-  if (category && !tags) {
-    const { data, error } = await supabase
-      .from("blog_posts")
-      .select("*")
-      .eq("status", "published")
-      .eq("category", category)
-      .order("created_at", { ascending: false })
-      .range(...pageRange);
-    if (error) {
-      dataToPass = [];
-    }
-    dataToPass = data!;
-  } else if (tags && !category) {
-    const { data, error } = await supabase
-      .from("blog_posts")
-      .select("*")
-      .eq("status", "published")
-      .contains("tags", [tags])
-      .order("created_at", { ascending: false })
-      .range(...pageRange);
-
-    if (error) {
-      dataToPass = [];
-    }
-    dataToPass = data!;
-  } else if (tags && category) {
-    const { data, error } = await supabase
-      .from("blog_posts")
-      .select("*")
-      .eq("status", "published")
-      .eq("category", category)
-      .contains("tags", [tags])
-      .order("created_at", { ascending: false })
-      .range(...pageRange);
-    if (error) {
-      dataToPass = [];
-    }
-    dataToPass = data!;
-  } else {
-    const { data, error } = await supabase
-      .from("blog_posts")
-      .select("*")
-      .eq("status", "published")
-      .order("created_at", { ascending: false })
-      .range(...pageRange);
-    if (error) {
-      dataToPass = [];
-    }
-    dataToPass = data!;
-  }
-
-  // get full data to make pagination
-  const { data: totalPosts, error: totalPostsFetchError } = await supabase
-    .from("blog_posts")
-    .select("*")
-    .eq("status", "published");
-
-  if (totalPostsFetchError) {
-    redirect("blog/error");
-  }
+  const { data: dataToPass, total } = await fetchBlogPosts(
+    supabase,
+    pageRange,
+    category,
+    tags,
+  );
 
   return (
     <>
-      <BlogFilter totalPosts={totalPosts} />
-      <BlogPostSection
-        posts={dataToPass}
-        totalPostsNumber={totalPosts.length}
-      />
+      <BlogFilter totalPosts={dataToPass} />
+      <BlogPostSection posts={dataToPass} totalPostsNumber={total} />
     </>
   );
 };
