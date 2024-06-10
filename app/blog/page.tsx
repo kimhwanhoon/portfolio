@@ -2,6 +2,8 @@ import { BlogMain } from "@/components/blog/list/BlogMain";
 
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
+import { Suspense } from "react";
+import BlogPostsLoading from "./loading";
 
 interface BlogPageProps {
   searchParams: {
@@ -39,7 +41,9 @@ const BlogPage: React.FC<BlogPageProps> = async ({ searchParams }) => {
   }
   return (
     <main className="relative min-h-[calc(100dvh-202px)] pb-8 sm:pb-0">
-      <BlogMain searchParams={searchParams} />
+      <Suspense fallback={<BlogPostsLoading />}>
+        <BlogMain searchParams={searchParams} />
+      </Suspense>
     </main>
   );
 };
