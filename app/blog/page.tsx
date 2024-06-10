@@ -29,6 +29,14 @@ export const metadata: Metadata = {
 };
 
 const BlogPage: React.FC<BlogPageProps> = async ({ searchParams }) => {
+  const page = searchParams.page;
+  const tags = searchParams.tags;
+  const categories = searchParams.categories;
+  const ascending = searchParams.ascending;
+
+  if (!page && !tags && !categories && !ascending) {
+    redirect("/blog?ascending=false&page=1");
+  }
   return (
     <main className="relative min-h-[calc(100dvh-202px)] pb-8 sm:pb-0">
       <BlogMain searchParams={searchParams} />
