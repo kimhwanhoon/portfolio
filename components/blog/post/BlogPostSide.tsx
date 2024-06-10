@@ -18,7 +18,7 @@ export const BlogPostSide: React.FC<BlogPostSideProps> = async ({ data }) => {
       .from("blog_posts")
       .select("*")
       .eq("status", "published")
-      .order("created_at")
+      .order("created_at", { ascending: false })
       .limit(3);
 
   const { data: relatedPostsData, error: relatedPostsDataFetchError } =

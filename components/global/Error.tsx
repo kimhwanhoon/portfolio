@@ -17,12 +17,10 @@ export const Error: React.FC<ErrorProps> = ({ title, subtitle }) => {
         <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
           {title}
         </h1>
-        <p className="text-gray-500 md:text-xl dark:text-gray-400">
-          {subtitle}
-        </p>
+        <p className="text-gray-500 md:text-xl">{subtitle}</p>
       </div>
       <div className="flex justify-center gap-2">
-        <Button color="black" component={Link} href="/" prefetch={false}>
+        <Button component={Link} href="/" prefetch={false}>
           Go back home
         </Button>
         <Button variant="outline" color="black" onClick={() => router.back()}>
