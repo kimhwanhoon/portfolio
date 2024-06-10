@@ -11,6 +11,7 @@ export type Database = {
     Tables: {
       blog_posts: {
         Row: {
+          category: Database["public"]["Enums"]["category_enum"] | null
           category_id: string | null
           content: string
           created_at: string | null
@@ -26,6 +27,7 @@ export type Database = {
           view_count: number | null
         }
         Insert: {
+          category?: Database["public"]["Enums"]["category_enum"] | null
           category_id?: string | null
           content: string
           created_at?: string | null
@@ -41,6 +43,7 @@ export type Database = {
           view_count?: number | null
         }
         Update: {
+          category?: Database["public"]["Enums"]["category_enum"] | null
           category_id?: string | null
           content?: string
           created_at?: string | null
@@ -67,16 +70,19 @@ export type Database = {
       }
       categories: {
         Row: {
+          category_order: Database["public"]["Enums"]["category_order"]
           id: string
           name: Database["public"]["Enums"]["category_enum"]
           parent_id: string | null
         }
         Insert: {
+          category_order?: Database["public"]["Enums"]["category_order"]
           id?: string
           name?: Database["public"]["Enums"]["category_enum"]
           parent_id?: string | null
         }
         Update: {
+          category_order?: Database["public"]["Enums"]["category_order"]
           id?: string
           name?: Database["public"]["Enums"]["category_enum"]
           parent_id?: string | null
@@ -136,6 +142,7 @@ export type Database = {
         | "Goal Setting"
         | "Mental Health"
         | "Productivity"
+      category_order: "0" | "1" | "2"
       status_enum: "draft" | "published" | "archived" | "deleted"
     }
     CompositeTypes: {

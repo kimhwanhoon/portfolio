@@ -3,9 +3,7 @@ import { BlogMain } from "@/components/blog/list/BlogMain";
 import type { Metadata } from "next";
 
 interface BlogPageProps {
-  searchParams: {
-    page: string;
-  };
+  searchParams: { page: string; tags: string; category: string };
 }
 
 export const metadata: Metadata = {
