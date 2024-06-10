@@ -8,7 +8,7 @@ import { BlogPostType } from "@/types/blogPostType";
 interface BlogMainProps {
   searchParams: {
     page: string;
-    category: string;
+    categories: string;
     tags: string;
   };
 }
@@ -35,13 +35,13 @@ const fetchBlogPosts = async (
 };
 
 export const BlogMain: React.FC<BlogMainProps> = async ({
-  searchParams: { page, category, tags },
+  searchParams: { page, categories, tags },
 }) => {
   const pageName = Number(page);
 
   if (isNaN(pageName)) {
     redirect(
-      `/blog?${category ? `category=${category}&` : ""}${tags ? `tags=${tags}&` : ""}page=1`,
+      `/blog?${categories ? `categories=${categories}&` : ""}${tags ? `tags=${tags}&` : ""}page=1`,
     );
   }
 
@@ -50,14 +50,14 @@ export const BlogMain: React.FC<BlogMainProps> = async ({
   const { data: dataToPass, total } = await fetchBlogPosts(
     supabase,
     pageRange,
-    category,
+    categories,
     tags,
   );
 
   return (
-    <>
+    <div className="block lg:flex">
       <BlogFilter />
       <BlogPostSection posts={dataToPass} totalPostsNumber={total} />
-    </>
+    </div>
   );
 };

@@ -1,5 +1,6 @@
 "use client";
 
+import { useBlogFilterStore } from "@/store/blog/useBlogFilterStore";
 import { Database } from "@/types/database";
 import { MultiSelect, MultiSelectProps } from "@mantine/core";
 import Image from "next/image";
@@ -12,11 +13,11 @@ interface BlogPostListCategorySelectProps {
 export const BlogPostListCategorySelect: React.FC<
   BlogPostListCategorySelectProps
 > = ({ categoryNames }) => {
-  console.log(categoryNames);
+  const { saveCategories } = useBlogFilterStore();
   const categories = categoryNames.flatMap((category) => category.name);
   const multiSelectProps: MultiSelectProps = {
     label: "Categories",
-    placeholder: "Select Category",
+    placeholder: "Select Categories",
     data: categories,
     searchable: true,
     hidePickedOptions: true,
@@ -28,7 +29,7 @@ export const BlogPostListCategorySelect: React.FC<
     leftSection: (
       <Image src={"/blog/category.svg"} alt="tag" width={16} height={16} />
     ),
-    // onChange: (e) => saveCategories(e),
+    onChange: (e) => saveCategories(e),
   };
 
   return (

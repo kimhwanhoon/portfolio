@@ -22,14 +22,17 @@ export const BlogPagination: React.FC<BlogPaginationProps> = ({
   }, [pageNumber]);
 
   return (
-    <div className="absolute bottom-0 w-full">
-      <Pagination
-        classNames={{ root: "flex justify-center" }}
-        total={Math.ceil(totalPostsNumber / 6)}
-        value={pageValue}
-        onChange={(e) => router.push(`/blog?page=${e}`)}
-      />
-      ;
-    </div>
+    <>
+      <div className="h-8 sm:h-16"></div>
+      <div className="absolute bottom-0 w-full">
+        <Pagination
+          classNames={{ root: "flex justify-center" }}
+          total={Math.ceil(totalPostsNumber / 6)}
+          value={pageValue}
+          onChange={(e) => router.push(`/blog?page=${e}`)}
+        />
+        ;
+      </div>
+    </>
   );
 };
