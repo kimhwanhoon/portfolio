@@ -10,6 +10,7 @@ interface BlogMainProps {
     page: string;
     categories: string;
     tags: string;
+    ascending: string;
   };
 }
 
@@ -18,16 +19,20 @@ const fetchBlogPosts = async (
   pageRange?: [number, number],
   category?: string,
   tags?: string,
+  ascending?: string,
 ): Promise<{ data: BlogPostType[]; total: number }> => {
   let query = supabase
     .from("blog_posts")
     .select("*", { count: "exact" })
-    .eq("status", "published")
-    .order("created_at", { ascending: false });
+    .eq("status", "published");
 
   if (category) query = query.eq("category", category);
   if (tags) query = query.contains("tags", [tags]);
   if (pageRange) query = query.range(...pageRange);
+  if (ascending === "false")
+    query = query.order("created_at", { ascending: false });
+  if (ascending === "true")
+    query = query.order("created_at", { ascending: true });
 
   const { data, error, count } = await query;
   if (error) return { data: [], total: 0 };
@@ -35,13 +40,13 @@ const fetchBlogPosts = async (
 };
 
 export const BlogMain: React.FC<BlogMainProps> = async ({
-  searchParams: { page, categories, tags },
+  searchParams: { page, categories, tags, ascending },
 }) => {
   const pageName = Number(page);
 
   if (isNaN(pageName)) {
     redirect(
-      `/blog?${categories ? `categories=${categories}&` : ""}${tags ? `tags=${tags}&` : ""}page=1`,
+      `/blog?${categories ? `categories=${categories}&` : ""}${tags ? `tags=${tags}&` : ""}${ascending ? "ascending=true" : "ascending=false"}page=1`,
     );
   }
 
@@ -52,6 +57,7 @@ export const BlogMain: React.FC<BlogMainProps> = async ({
     pageRange,
     categories,
     tags,
+    ascending,
   );
 
   return (

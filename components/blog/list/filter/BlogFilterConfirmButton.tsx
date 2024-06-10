@@ -5,13 +5,14 @@ import { useRouter } from "next/navigation";
 import React from "react";
 
 export const BlogFilterConfirmButton = () => {
-  const { categories, tags } = useBlogFilterStore();
+  const { categories, tags, ascending } = useBlogFilterStore();
   const router = useRouter();
   const clickHandler = () => {
     const tagsUrl = tags.length > 0 ? `&tags=${tags}` : "";
     const categoriesUrl =
       categories.length > 0 ? `&categories=${categories}` : "";
-    router.push(`/blog?page=1` + tagsUrl + categoriesUrl);
+    const ascendingUrl = ascending ? `&ascending=true` : `&ascending=false`;
+    router.push(`/blog?page=1` + tagsUrl + categoriesUrl + ascendingUrl);
   };
   return (
     <Button fullWidth onClick={clickHandler}>

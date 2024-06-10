@@ -19,6 +19,7 @@ const theme = createTheme({
       "#364379",
     ],
   },
+  cursorType: "pointer",
 });
 
 interface ThemeProviderProps {
