@@ -1,6 +1,7 @@
 import { BlogMain } from "@/components/blog/list/BlogMain";
 
 import type { Metadata } from "next";
+import { redirect } from "next/navigation";
 
 interface BlogPageProps {
   searchParams: {
