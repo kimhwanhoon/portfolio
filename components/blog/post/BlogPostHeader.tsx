@@ -1,4 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
+"use client";
+
 import { dateFormatter } from "@/lib/blog/dateFormatter";
 import { BlogPostType } from "@/types/blogPostType";
 import { IconCalendar, IconUser } from "@tabler/icons-react";
