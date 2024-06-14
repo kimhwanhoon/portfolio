@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { ColorSchemeScript } from "@mantine/core";
 import { Notifications } from "@mantine/notifications";
+import { NavigationProgress } from "@mantine/nprogress";
 
 import localFont from "next/font/local";
 
@@ -64,6 +65,7 @@ export default function RootLayout({
       <body className={arimo.className}>
         <ThemeProvider>
           <Notifications position="top-center" />
+          <NavigationProgress size={4} />
           <Header />
           {children}
           <Footer />

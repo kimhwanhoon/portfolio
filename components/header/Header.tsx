@@ -1,3 +1,5 @@
+"use client";
+
 import { Nav } from "./Nav";
 import { MobileNav } from "./MobileNav";
 import { Logo } from "@/lib/Logo";

@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import { BlogMain } from "@/components/blog/post/BlogMain";
 import { BlogPost } from "@/components/blog/post/BlogPost";
 import { BlogPostHeader } from "@/components/blog/post/BlogPostHeader";
 import { BlogPostSide } from "@/components/blog/post/BlogPostSide";
@@ -66,7 +67,7 @@ const BlogPostPage: React.FC<BlogPostPageProps> = async ({
   }
 
   return (
-    <main className="min-h-[calc(100dvh-202px)]">
+    <BlogMain>
       <BlogPostHeader data={data} />
       <div className="mx-auto grid w-full grid-cols-1 gap-8 px-4 py-8 md:grid-cols-3 md:py-8 lg:py-12">
         <div className="prose prose-gray dark:prose-invert max-w-none md:col-span-2">
@@ -74,7 +75,7 @@ const BlogPostPage: React.FC<BlogPostPageProps> = async ({
         </div>
         <BlogPostSide data={data} />
       </div>
-    </main>
+    </BlogMain>
   );
 };
 
